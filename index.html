@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Мировые рецепты</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: #fdf6e3;
+    :root{
+      --bg:#fff7ea;
+      --card:#ffffff;
+      --text:#222;
+      --muted:#666;
+      --brand:#e05a00;
+      --shadow:0 6px 18px rgba(0,0,0,.08);
+      --radius:16px;
     }
-    h1 {
-      color: #d35400;
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      color:var(--text);background:var(--bg);
     }
-    p {
-      font-size: 18px;
+    header{
+      position:sticky;top:0;z-index:10;
+      background:linear-gradient(180deg,#fff,rgba(255,255,255,.92));
+      backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid #f0e6d8;
     }
-  </style>
-</head>
-<body>
-  <h1>Мировые рецепты 🌍🍲</h1>
-  <p>Добро пожаловать в приложение с рецептами всех кухонь мира!</p>
-</body>
-</html>
+    .wrap{max-width:1100px;margin:0 auto;padding:16px}
+    nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;color:var(--brand);font-size:20px}
+    .menu{display:flex;gap:8px;flex-wrap:wrap}
+    .menu a{
+      text-decoration:none;background:#ffe6cc;color:#7a3a00;
+      padding:10px 14px;border-radius:999px;font-weight:600;
+      border:1px solid #ffd4ad;
+    }
+    .menu a:hover{background:#ffd9b3}
+    .hero{
+      text-align:center;padding:36px 16px 8px;
+    }
+    .hero h1{margin:0 0 6px;font-size:40px;line-height:1.1;color:#d35400}
+    .hero p{margin:4px auto 0;max-width:700px;color:var(--muted)}
+    .grid{
+      display:grid;gap:18px;
+      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      padding:16px;
+    }
+    .card{
+      background:var(--card);border-radius:var(--radius);
+      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column
+    }
+    .card img{width
