@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мировые рецепты</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .recipe {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+    .recipe:last-child {
+      border-bottom: none;
+    }
+    .recipe h2 {
+      margin: 0 0 0.5rem;
+      color: #4CAF50;
+    }
+    .recipe p {
+      margin: 0.2rem 0;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌍 Мировые рецепты</h1>
+    <p>Добро пожаловать в приложение с рецептами всех кухонь мира!</p>
+  </header>
+  <main>
+    <div class="recipe">
+      <h2>Паста Карбонара (Италия)</h2>
+      <p><b>Ингредиенты:</b> спагетти, бекон, яйца, сыр пармезан.</p>
+      <p><b>Приготовление:</b> Обжарьте бекон, смешайте с пастой, яйцами и сыром.</p>
+    </div>
+    <div class="recipe">
+      <h2>Борщ (Украина)</h2>
+      <p><b>Ингредиенты:</b> свекла, капуста, картофель, мясо, сметана.</p>
+      <p><b>Приготовление:</b> Сварите бульон, добавьте овощи и подавайте со сметаной.</p>
+    </div>
+    <div class="recipe">
+      <h2>Суши (Япония)</h2>
+      <p><b>Ингредиенты:</b> рис, водоросли нори, рыба, овощи.</p>
+      <p><b>Приготовление:</b> Заверните рис и начинку в нори, нарежьте на кусочки.</p>
+    </div>
+  </main>
+  <footer>
+    <p>© 2024 Мировые рецепты</p>
+  </footer>
+</body>
+</html>
