@@ -1,52 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Мировые рецепты</title>
-  <style>
-    :root{
-      --bg:#fff7ea;
-      --card:#ffffff;
-      --text:#222;
-      --muted:#666;
-      --brand:#e05a00;
-      --shadow:0 6px 18px rgba(0,0,0,.08);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-      color:var(--text);background:var(--bg);
-    }
-    header{
-      position:sticky;top:0;z-index:10;
-      background:linear-gradient(180deg,#fff,rgba(255,255,255,.92));
-      backdrop-filter:saturate(180%) blur(8px);
-      border-bottom:1px solid #f0e6d8;
-    }
-    .wrap{max-width:1100px;margin:0 auto;padding:16px}
-    nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .brand{font-weight:800;color:var(--brand);font-size:20px}
-    .menu{display:flex;gap:8px;flex-wrap:wrap}
-    .menu a{
-      text-decoration:none;background:#ffe6cc;color:#7a3a00;
-      padding:10px 14px;border-radius:999px;font-weight:600;
-      border:1px solid #ffd4ad;
-    }
-    .menu a:hover{background:#ffd9b3}
-    .hero{
-      text-align:center;padding:36px 16px 8px;
-    }
-    .hero h1{margin:0 0 6px;font-size:40px;line-height:1.1;color:#d35400}
-    .hero p{margin:4px auto 0;max-width:700px;color:var(--muted)}
-    .grid{
-      display:grid;gap:18px;
-      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-      padding:16px;
-    }
-    .card{
-      background:var(--card);border-radius:var(--radius);
-      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column
-    }
-    .card img{width
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Мировые рецепты</title>
+<style>
+  :root{
+    --bg:#fff8ee;--text:#1a1a1a;--muted:#666;--brand:#e25c2c;--card:#ffffff;--shadow:0 6px 18px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid #f0e6db;z-index:10}
+  .wrap{max-width:1100px;margin:0 auto;padding:14px 18px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--brand);font-size:22px}
+  nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--text);background:#fff1e6;border:1px solid #ffe0cc}
+  nav a:hover{background:#ffd9c2}
+  .hero{padding:36px 18px;text-align:center}
+  .hero h1{font-size:40px;line-height:1.15;margin:0 0 8px;color:var(--brand)}
+  .hero p{margin:0;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;padding:0 18px 40px}
+  .card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .card img{width:100%;height:180px;object-fit:cover}
+  .card h3{font-size:18px;margin:12px 14px 6px}
+  .meta{font-size:13px;color:var(--muted);margin:0 14px 10px}
+  details{border-top:1px solid #f2eee8;padding:10px 14px}
+  details summary{cursor:pointer;font-weight:600;list-style:none}
+  .list{margin:8px 0 0 18px}
+  footer{padding:24px 18px;border-top:1px solid #f0e6db;color:var(--muted);text-align:center}
+  @media (max-width:520px){.hero h1{font-size:30px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">🍲 Мировые рецепты</div>
+    <nav>
+      <a href="#salads">Салаты</a>
+      <a href="#soups">Супы</a>
+      <a href="#main">Горячее</a>
+      <a href="#desserts">Десерты</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Добро пожаловать!</h1>
+  <p>Подборка из 10 простых и вкусных блюд со всего мира. Открой карточку, чтобы посмотреть ингредиенты и шаги.</p>
+</section>
+
+<div class="grid wrap" id="salads">
+  <!-- 1. Греческий салат -->
+  <article class="card">
+    <img alt="Greek salad" src="https://images.unsplash.com/photo-1604908554027-0c5c3a9e6f3b?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Греческий салат</h3>
+    <p class="meta">Средиземноморская кухня • 15 мин</p>
+    <details>
+      <summary>Ингредиенты и шаги</summary>
+      <ul class="list">
+        <li>Огурец, помидоры, красный лук, оливки, фета, орегано.</li>
+        <li>Заправка: оливковое масло, лимонный сок, соль.</li>
+        <li>Нарезать, смешать, заправить и подать.</li>
+      </ul>
+    </details>
+  </article>
+
+  <!-- 2. Цезарь -->
+  <article class="card">
+    <img alt="Caesar salad" src="https://images.unsplash.com/photo-1551892589-865f69869443?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Салат «Цезарь»</h3>
+    <p class="meta">Америка • 20 мин</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Курица, романо, сухарики, пармезан.</li><li>Соус: анчоусы, чеснок, йогурт/майонез, лимон.</li><li>Обжарить курицу, перемешать с соусом.</li></ul>
+    </details>
+  </article>
+
+  <!-- 3. Борщ -->
+  <article class="card" id="soups">
+    <img alt="Borscht" src="https://images.unsplash.com/photo-1632587162191-6d7b1e5b3a73?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Борщ с сметаной</h3>
+    <p class="meta">Восточная Европа • 1 ч</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Свёкла, капуста, картофель, морковь, томат.</li><li>Бульон, лавр, чеснок, уксус, сахар, соль.</li><li>Тушить овощи, соединить с бульоном, подать со сметаной.</li></ul>
+    </details>
+  </article>
+
+  <!-- 4. Том Ям -->
+  <article class="card">
+    <img alt="Tom Yum" src="https://images.unsplash.com/photo-1604908553866-06b2e9a60f1a?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Том Ям</h3>
+    <p class="meta">Таиланд • 30 мин</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Креветки, лемонграсс, лайм, рыбный соус, паста том ям.</li><li>Кипятить бульон с ароматами, добавить креветки и кокосовое молоко.</li></ul>
+    </details>
+  </article>
+
+  <!-- 5. Паста Карбонара -->
+  <article class="card" id="main">
+    <img alt="Carbonara" src="https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Паста «Карбонара»</h3>
+    <p class="meta">Италия • 25 мин</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Спагетти, гуанчале/бекон, яйца, пекорино, перец.</li><li>Снять с огня, быстро соединить пасту с яйцами и сыром.</li></ul>
+    </details>
+  </article>
+
+  <!-- 6. Куриное карри -->
+  <article class="card">
+    <img alt="Chicken curry" src="https://images.unsplash.com/photo-1617191518301-9b02c7350f80?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Куриное карри</h3>
+    <p class="meta">Индия • 35 мин</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Курица, лук, чеснок, имбирь, томаты, смесь специй.</li><li>Обжарить специи, тушить курицу в соусе, подать с рисом.</li></ul>
+    </details>
+  </article>
+
+  <!-- 7. Тако с говядиной -->
+  <article class="card">
+    <img alt="Beef tacos" src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479a?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Тако с говядиной</h3>
+    <p class="meta">Мексика • 20 мин</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Лепёшки, говядина, томаты, салат, сальса.</li><li>Обжарить фарш со специями, собрать тако.</li></ul>
+    </details>
+  </article>
+
+  <!-- 8. Шакшука -->
+  <article class="card">
+    <img alt="Shakshuka" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Шакшука</h3>
+    <p class="meta">Ближний Восток • 25 мин</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Яйца, томаты, перец, лук, тмин, паприка.</li><li>Тушить соус, сделать «лужицы», разбить яйца, довести под крышкой.</li></ul>
+    </details>
+  </article>
+
+  <!-- 9. Тирамису -->
+  <article class="card" id="desserts">
+    <img alt="Tiramisu" src="https://images.unsplash.com/photo-1603126857599-02890f3b9b8e?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Тирамису</h3>
+    <p class="meta">Италия • 30 мин + охлаждение</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Савоярди, эспрессо, маскарпоне, яйца, какао.</li><li>Слои печенья и крема, посыпать какао, охладить 4 часа.</li></ul>
+    </details>
+  </article>
+
+  <!-- 10. Банановые панкейки -->
+  <article class="card">
+    <img alt="Banana pancakes" src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1200&auto=format&fit=crop" />
+    <h3>Банановые панкейки</h3>
+    <p class="meta">Завтрак • 20 мин</p>
+    <details><summary>Ингредиенты и шаги</summary>
+      <ul class="list"><li>Банан, яйцо, молоко, мука, разрыхлитель, щепоть соли.</li><li>Смешать, жарить на среднем огне, подать с мёдом.</li></ul>
+    </details>
+  </article>
+</div>
+
+<footer>© Мировые рецепты — статический сайт на GitHub Pages</footer>
+</body>
+</html>
