@@ -1,139 +1,290 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Медиа — шаблон сайта (share-style)</title>
-  <meta name="description" content="Лёгкий шаблон медиа/журнала в стиле share-сайтов. Настройте цвета через CSS-переменные.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <!-- Top notice / promo (optional) -->
-  <div class="notice" role="region" aria-label="Промо">
-    <div class="container notice__inner">
-      <span class="badge">Новое</span>
-      <p>Умный шаблон медиа-сайта. Настройте палитру и контент под себя.</p>
-      <button class="btn btn--ghost btn--sm" id="closeNotice" aria-label="Скрыть">×</button>
+import React, { useState } from "react";
+
+// === Single-file React prototype ===
+// Styling: Tailwind CSS utility classes (no extra imports needed in this preview)
+// Sections: Food, Home Fitness, Care, Feedback — each with image, description, instruction
+// Ad slots: visible blocks with text "Здесь должна быть Ваша реклама"
+
+export default function App() {
+  const [active, setActive] = useState("home");
+
+  const NavLink = ({ id, children }: { id: string; children: React.ReactNode }) => (
+    <button
+      onClick={() => setActive(id)}
+      className={`px-4 py-2 rounded-full text-sm font-medium transition shadow-sm hover:shadow ${
+        active === id ? "bg-green-600 text-white" : "bg-white text-gray-700 border"
+      }`}
+    >
+      {children}
+    </button>
+  );
+
+  const AdBlock = () => (
+    <div className="w-full rounded-2xl border-2 border-dashed border-gray-300 p-6 text-center text-gray-600 bg-white">
+      <div className="text-lg font-semibold">Здесь должна быть Ваша реклама</div>
     </div>
-  </div>
+  );
 
-  <!-- Header / Navigation -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="#" class="brand" aria-label="На главную">
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 3l9 8.5v8.5a1 1 0 0 1-1 1h-6v-6H10v6H4a1 1 0 0 1-1-1v-8.5Z" fill="currentColor"/></svg>
-        <span>Ваш&nbsp;Бренд</span>
-      </a>
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      {/* Header */}
+      <header className="bg-gradient-to-b from-green-600 to-green-500 text-white py-10 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+            Health, Beauty, Nutrition
+          </h1>
+          <p className="mt-3 text-lg sm:text-xl italic opacity-95">
+            With care for you! <span className="not-italic">@Анастасия П.</span>
+          </p>
 
-      <nav class="nav" aria-label="Основная навигация">
-        <a href="#latest">Новинки</a>
-        <a href="#popular">Популярное</a>
-        <a href="#subscribe">Подписка</a>
-        <a href="#about">О проекте</a>
-      </nav>
+          {/* Navigation */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <NavLink id="food">Питание</NavLink>
+            <NavLink id="fitness">Фитнес дома</NavLink>
+            <NavLink id="care">Уход</NavLink>
+            <NavLink id="feedback">Обратная связь</NavLink>
+          </div>
+        </div>
+      </header>
 
-      <div class="header__cta">
-        <button class="btn btn--primary">Начать</button>
-      </div>
+      {/* Content + Right sidebar ads */}
+      <main className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Main column */}
+        <div className="lg:col-span-8 space-y-8">
+          {active === "home" && <HomeIntro />}
+          {active === "food" && <FoodSection />}
+          {active === "fitness" && <FitnessSection />}
+          {active === "care" && <CareSection />}
+          {active === "feedback" && <FeedbackSection />}
 
-      <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Меню</span>
-      </button>
+          {/* Inline ad between blocks */}
+          <AdBlock />
+        </div>
+
+        {/* Sidebar with ad slots */}
+        <aside className="lg:col-span-4 space-y-6">
+          <AdBlock />
+          <AdBlock />
+          <div className="rounded-2xl bg-white p-6 shadow-sm">
+            <h3 className="text-lg font-semibold mb-3">О сайте</h3>
+            <p className="text-sm text-gray-600">
+              Практичные советы по питанию, домашним тренировкам и уходу. Каждый материал
+              снабжён фото, описанием и пошаговой инструкцией.
+            </p>
+          </div>
+        </aside>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t bg-white">
+        <div className="max-w-6xl mx-auto px-6 py-8 text-sm text-gray-600 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div>© {new Date().getFullYear()} Health, Beauty, Nutrition</div>
+          <div>With care for you! — @Анастасия П.</div>
+        </div>
+      </footer>
     </div>
+  );
+}
 
-    <nav class="nav--mobile" id="mobileMenu" aria-label="Мобильная навигация">
-      <a href="#latest">Новинки</a>
-      <a href="#popular">Популярное</a>
-      <a href="#subscribe">Подписка</a>
-      <a href="#about">О проекте</a>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <h1>Добро пожаловать в ваш медиа-раздел</h1>
-        <p class="lead">Платформа для статей о здоровье, тренировках, питании и саморазвитии. Минималистичный шаблон с акцентом на контент.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#latest">Смотреть новинки</a>
-          <a class="btn btn--ghost" href="#popular">Популярное</a>
+function Card({
+  img,
+  alt,
+  title,
+  description,
+  steps,
+}: {
+  img: string;
+  alt: string;
+  title: string;
+  description: string;
+  steps: string[];
+}) {
+  return (
+    <article className="rounded-2xl overflow-hidden bg-white shadow-sm border">
+      <img src={img} alt={alt} className="w-full h-56 object-cover" />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold">{title}</h3>
+        <p className="mt-2 text-gray-700">{description}</p>
+        <div className="mt-4">
+          <div className="font-medium">Инструкция:</div>
+          <ol className="list-decimal ml-5 mt-2 space-y-1 text-gray-700">
+            {steps.map((s, i) => (
+              <li key={i}>{s}</li>
+            ))}
+          </ol>
         </div>
       </div>
-      <div class="hero__art" aria-hidden="true">
-        <!-- Decorative placeholder -->
-        <div class="blob"></div>
-      </div>
-    </div>
-  </section>
+    </article>
+  );
+}
 
-  <!-- Latest -->
-  <section class="section" id="latest" aria-labelledby="latestHeading">
-    <div class="container">
-      <div class="section__head">
-        <h2 id="latestHeading">Новинки</h2>
-        <a class="link" href="#" title="Посмотреть все">Посмотреть все</a>
-      </div>
-      <div class="grid grid--latest" id="latestGrid" role="list"></div>
+function SectionTitle({ title, subtitle }: { title: string; subtitle: string }) {
+  return (
+    <div className="mb-2">
+      <h2 className="text-2xl sm:text-3xl font-bold">{title}</h2>
+      <p className="text-gray-600 mt-1">{subtitle}</p>
     </div>
-  </section>
+  );
+}
 
-  <!-- Popular -->
-  <section class="section" id="popular" aria-labelledby="popularHeading">
-    <div class="container">
-      <div class="section__head">
-        <h2 id="popularHeading">Популярные статьи</h2>
-        <a class="link" href="#" title="Посмотреть все">Посмотреть все</a>
-      </div>
-      <div class="grid grid--popular" id="popularGrid" role="list"></div>
+function HomeIntro() {
+  return (
+    <div className="rounded-2xl bg-white p-8 shadow-sm border">
+      <SectionTitle title="Добро пожаловать" subtitle="Выберите раздел сверху, чтобы начать" />
+      <p className="text-gray-700 mt-2">
+        Здесь собраны проверенные рекомендации: блюда и напитки для здоровья, домашние упражнения
+        с понятными шагами и наглядными фото, а также простая рутина ухода за собой.
+      </p>
     </div>
-  </section>
+  );
+}
 
-  <!-- Subscribe -->
-  <section class="section section--alt" id="subscribe" aria-labelledby="subHeading">
-    <div class="container">
-      <div class="subscribe">
-        <div class="subscribe__copy">
-          <h2 id="subHeading">Письма для лучшей версии себя</h2>
-          <p>Ваш персональный гид в мире здоровья, питания и тренировок. Подпишитесь и начните меняться уже сегодня.</p>
-        </div>
-        <form class="subscribe__form" onsubmit="event.preventDefault(); alert('Спасибо! Вы подписаны.');">
-          <label for="email" class="sr-only">Email</label>
-          <input id="email" type="email" placeholder="например, you@site.com" required aria-label="Email">
-          <button class="btn btn--primary" type="submit">Подписаться</button>
+function FoodSection() {
+  const items = [
+    {
+      img: "https://source.unsplash.com/featured/?healthy,salad,vegetables",
+      alt: "Овощной салат",
+      title: "Овощной салат",
+      description:
+        "Лёгкий салат, богатый клетчаткой и витаминами. Подходит как гарнир или самостоятельное блюдо.",
+      steps: [
+        "Нарежьте огурцы, помидоры, листовую зелень.",
+        "Добавьте оливковое масло, лимонный сок и щепотку соли.",
+        "Перемешайте и подайте сразу.",
+      ],
+    },
+    {
+      img: "https://source.unsplash.com/featured/?smoothie,fruit,healthy",
+      alt: "Фруктовый смузи",
+      title: "Фруктовый смузи",
+      description:
+        "Освежающий напиток для заряда энергией утром. Можно добавить семена чиа или овсяные хлопья.",
+      steps: [
+        "Возьмите банан, яблоко и горсть ягод.",
+        "Смешайте в блендере с йогуртом/кефиром до однородности.",
+        "Добавьте мёд по вкусу и подайте охлаждённым.",
+      ],
+    },
+  ];
+
+  return (
+    <section className="space-y-6">
+      <SectionTitle title="Питание" subtitle="Рецепты и полезные идеи с пошаговыми инструкциями" />
+      <div className="grid sm:grid-cols-2 gap-6">
+        {items.map((item, idx) => (
+          <Card key={idx} {...item} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function FitnessSection() {
+  const items = [
+    {
+      img: "https://source.unsplash.com/featured/?plank,workout,woman,home",
+      alt: "Планка — девушка выполняет упражнение",
+      title: "Упражнение «Планка»",
+      description:
+        "Изометрическое упражнение для укрепления кора, спины и плеч. Улучшает осанку и выносливость.",
+      steps: [
+        "Опуститесь на предплечья, корпус ровный — от головы до пят.",
+        "Напрягите пресс, слегка подкрутите таз, не прогибайтесь в пояснице.",
+        "Держите позицию 30–60 сек, 3 подхода, отдых 60 сек.",
+      ],
+    },
+    {
+      img: "https://source.unsplash.com/featured/?squat,fitness,home,woman",
+      alt: "Приседания дома",
+      title: "Приседания",
+      description:
+        "Базовое упражнение для ног и ягодиц без оборудования. Подходит для начинающих и продвинутых.",
+      steps: [
+        "Ноги на ширине плеч, носки слегка наружу.",
+        "Сгибайте колени до ~90°, спина ровная, колени над стопами.",
+        "12–15 повторений × 3 подхода, темп контролируйте.",
+      ],
+    },
+  ];
+
+  return (
+    <section className="space-y-6">
+      <SectionTitle title="Фитнес дома" subtitle="Наглядные фото + чёткие шаги выполнения" />
+      <div className="grid sm:grid-cols-2 gap-6">
+        {items.map((item, idx) => (
+          <Card key={idx} {...item} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CareSection() {
+  const items = [
+    {
+      img: "https://source.unsplash.com/featured/?skincare,face,routine",
+      alt: "Уход за кожей",
+      title: "Базовый уход за кожей",
+      description:
+        "Три шага ежедневной рутины помогают сохранить барьер кожи и здоровое сияние.",
+      steps: [
+        "Очищение: мягкий гель утром и вечером.",
+        "Тонизирование: восстановление pH и подготовка к крему.",
+        "Увлажнение: крем по типу кожи (утро/вечер).",
+      ],
+    },
+    {
+      img: "https://source.unsplash.com/featured/?relaxation,sleep,calm",
+      alt: "Расслабление и сон",
+      title: "Расслабление и сон",
+      description:
+        "Сон — ключ к восстановлению. Небольшие ритуалы помогают быстрее засыпать и лучше отдыхать.",
+      steps: [
+        "За 1 час до сна — приглушите свет, уберите гаджеты.",
+        "Тёплый душ/ванна и лёгкая растяжка.",
+        "Ложитесь в одно и то же время, проветривайте комнату.",
+      ],
+    },
+  ];
+
+  return (
+    <section className="space-y-6">
+      <SectionTitle title="Уход" subtitle="Простые и эффективные ритуалы" />
+      <div className="grid sm:grid-cols-2 gap-6">
+        {items.map((item, idx) => (
+          <Card key={idx} {...item} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function FeedbackSection() {
+  return (
+    <section className="space-y-6">
+      <SectionTitle title="Обратная связь" subtitle="Напишите нам — мы обязательно ответим" />
+      <div className="rounded-2xl bg-white p-6 shadow-sm border">
+        <form className="grid gap-4">
+          <label className="grid gap-1">
+            <span className="text-sm text-gray-700">Ваше имя</span>
+            <input className="border rounded-xl px-4 py-2" type="text" placeholder="Иван Иванов" required />
+          </label>
+          <label className="grid gap-1">
+            <span className="text-sm text-gray-700">Email</span>
+            <input className="border rounded-xl px-4 py-2" type="email" placeholder="name@example.com" required />
+          </label>
+          <label className="grid gap-1">
+            <span className="text-sm text-gray-700">Сообщение</span>
+            <textarea className="border rounded-xl px-4 py-2" rows={5} placeholder="Ваш вопрос или предложение" required />
+          </label>
+          <button type="submit" className="bg-green-600 text-white rounded-xl px-5 py-2 font-medium hover:bg-green-700 transition">
+            Отправить
+          </button>
         </form>
       </div>
-    </div>
-  </section>
 
-  <!-- About -->
-  <section class="section" id="about" aria-labelledby="aboutHeading">
-    <div class="container prose">
-      <h2 id="aboutHeading">О проекте</h2>
-      <p>Это открытый шаблон медиа-сайта, выполненный в духе популярных share-страниц. Он сохранит вашу фирменную палитру: просто укажите цвета в <code>:root</code> в <strong>styles.css</strong>.</p>
-      <ul>
-        <li>Адаптивная сетка (CSS Grid + Flexbox).</li>
-        <li>Лёгкие карточки статей с тегами, датой, чтением, рейтингом и комментарием.</li>
-        <li>Мобильное меню и настраиваемые переменные темы.</li>
-      </ul>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p>© <span id="year"></span> Ваш Бренд. Сделано с заботой о читателе.</p>
-      <nav class="footer__nav" aria-label="Нижняя навигация">
-        <a href="#latest">Новинки</a>
-        <a href="#popular">Популярное</a>
-        <a href="#subscribe">Подписка</a>
-        <a href="#about">О проекте</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+      {/* Ad block below the form */}
+      <AdBlock />
+    </section>
+  );
+}
