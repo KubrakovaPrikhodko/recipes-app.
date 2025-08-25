@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,10 +7,89 @@
   <meta name="description" content="Лёгкий шаблон медиа/журнала в стиле share-сайтов. Настройте цвета через CSS-переменные.">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+  /* ===============================
+     ТЕМА: поменяйте цвета под себя
+  ================================== */
+  :root{
+    --brand:#5a67d8;--brand-ink:#fff;--accent:#22c55e;--bg:#0b0b10;--surface:#12121a;--surface-2:#1a1a24;
+    --text:#e6e6f0;--muted:#a1a1af;--border:#2a2a3a;--chip:#20202c;--success:#16a34a;--warning:#f59e0b;--danger:#ef4444;
+    --shadow:0 10px 30px rgb(0 0 0 / 20%);
+  }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+       background:radial-gradient(1200px 800px at 80% -100px,#141421,transparent 60%),var(--bg);color:var(--text);line-height:1.65}
+  .container{max-width:1120px;margin:0 auto;padding:0 20px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  .notice{background:linear-gradient(90deg,var(--brand),var(--accent));color:var(--brand-ink)}
+  .notice__inner{display:flex;gap:16px;align-items:center;padding:10px 0}
+  .notice .badge{background:rgb(255 255 255 / 25%);padding:4px 8px;border-radius:999px;font-weight:600;font-size:12px}
+  .notice p{margin:0;flex:1}
+  .notice .btn--ghost{color:var(--brand-ink);border-color:rgb(255 255 255 / 40%)}
+  .notice .btn--ghost:hover{background:rgb(255 255 255 / 10%)}
+  #closeNotice{line-height:1;font-size:18px;padding:6px 10px}
+  .header{position:sticky;top:0;z-index:50;background:rgba(10,10,16,.7);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .header__inner{display:flex;align-items:center;gap:24px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:700}
+  .brand svg{color:var(--brand)}
+  .nav{display:flex;gap:16px;margin-left:auto}
+  .nav a,.nav--mobile a{color:var(--muted);text-decoration:none;font-weight:500}
+  .nav a:hover,.nav--mobile a:hover{color:var(--text)}
+  .header__cta{display:none}
+  .hamburger{display:none;width:44px;height:44px;border:1px solid var(--border);background:transparent;border-radius:10px;position:relative}
+  .hamburger span{position:absolute;left:10px;right:10px;height:2px;background:var(--text);transition:.2s}
+  .hamburger span:nth-child(1){top:12px}.hamburger span:nth-child(2){top:20px}.hamburger span:nth-child(3){top:28px}
+  .nav--mobile{display:none;border-top:1px solid var(--border);background:var(--surface)}
+  .nav--mobile a{display:block;padding:14px 20px;border-bottom:1px solid var(--border)}
+  .btn{appearance:none;border:1px solid transparent;background:var(--surface-2);color:var(--text);padding:10px 16px;border-radius:12px;
+       font-weight:600;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
+  .btn--primary{background:var(--brand);color:var(--brand-ink)}.btn--primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .btn--ghost{background:transparent;border-color:var(--border)}.btn--sm{padding:6px 10px;border-radius:8px;font-weight:700}
+  .hero{padding:48px 0 24px;border-bottom:1px solid var(--border)}
+  .hero__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+  .hero__content h1{margin:0 0 12px;font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em}
+  .hero__content .lead{margin:0 0 20px;color:var(--muted)}
+  .hero__actions{display:flex;gap:12px;flex-wrap:wrap}
+  .hero__art{display:flex;justify-content:center;align-items:center}
+  .hero__art .blob{width:100%;max-width:460px;aspect-ratio:1/1;
+    background:radial-gradient(circle at 30% 30%,var(--brand) 0,transparent 60%),
+               radial-gradient(circle at 70% 70%,var(--accent) 0,transparent 50%),
+               linear-gradient(45deg,var(--surface),var(--surface-2));
+    border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;box-shadow:var(--shadow);border:1px solid var(--border)}
+  .section{padding:36px 0}.section--alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .section__head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+  .section__head h2{margin:0;font-size:clamp(20px,2vw,28px)}
+  .link{color:var(--muted);text-decoration:none;font-weight:600}.link:hover{color:var(--text)}
+  .grid{display:grid;gap:18px}.grid--latest{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid--popular{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s}
+  .card:hover{transform:translateY(-2px)}
+  .card__media{position:relative;background:linear-gradient(180deg,rgb(255 255 255 / 3%),rgb(0 0 0 / 8%)),linear-gradient(45deg,var(--surface-2),var(--surface));
+               aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+  .card__media svg{opacity:.4}
+  .card__body{padding:14px;display:flex;flex-direction:column;gap:10px}
+  .card__chips{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .chip{background:var(--chip);color:var(--muted);border:1px solid var(--border);font-size:12px;padding:4px 8px;border-radius:999px}
+  .card__title{margin:0;font-size:18px;line-height:1.3}.card__title a{color:var(--text);text-decoration:none}.card__title a:hover{color:var(--brand)}
+  .card__meta{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13px}
+  .dot{width:5px;height:5px;background:var(--border);border-radius:50%;display:inline-block}
+  .subscribe{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center}
+  .subscribe__form{display:flex;gap:10px}
+  .subscribe input{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:12px;padding:12px}
+  .subscribe input::placeholder{color:var(--muted)}
+  .footer{border-top:1px solid var(--border);background:var(--surface)}
+  .footer__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 0}
+  .footer__nav{display:flex;gap:12px;flex-wrap:wrap}.footer__nav a{color:var(--muted);text-decoration:none}.footer__nav a:hover{color:var(--text)}
+  @media (max-width:1024px){.grid--popular{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:860px){
+    .hero__inner{grid-template-columns:1fr}.subscribe{grid-template-columns:1fr}.grid--latest{grid-template-columns:repeat(2,1fr)}
+    .header__cta{display:none}.nav{display:none}.hamburger{display:block;margin-left:auto}.nav--mobile[aria-expanded="true"]{display:block}
+  }
+  @media (max-width:540px){.grid--popular,.grid--latest{grid-template-columns:1fr}.footer__inner{flex-direction:column;align-items:flex-start}}
+  </style>
 </head>
 <body>
-  <!-- Top notice / promo (optional) -->
   <div class="notice" role="region" aria-label="Промо">
     <div class="container notice__inner">
       <span class="badge">Новое</span>
@@ -20,7 +98,6 @@
     </div>
   </div>
 
-  <!-- Header / Navigation -->
   <header class="header">
     <div class="container header__inner">
       <a href="#" class="brand" aria-label="На главную">
@@ -44,7 +121,6 @@
         <span class="sr-only">Меню</span>
       </button>
     </div>
-
     <nav class="nav--mobile" id="mobileMenu" aria-label="Мобильная навигация">
       <a href="#latest">Новинки</a>
       <a href="#popular">Популярное</a>
@@ -53,7 +129,6 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="container hero__inner">
       <div class="hero__content">
@@ -65,13 +140,11 @@
         </div>
       </div>
       <div class="hero__art" aria-hidden="true">
-        <!-- Decorative placeholder -->
         <div class="blob"></div>
       </div>
     </div>
   </section>
 
-  <!-- Latest -->
   <section class="section" id="latest" aria-labelledby="latestHeading">
     <div class="container">
       <div class="section__head">
@@ -82,7 +155,6 @@
     </div>
   </section>
 
-  <!-- Popular -->
   <section class="section" id="popular" aria-labelledby="popularHeading">
     <div class="container">
       <div class="section__head">
@@ -93,7 +165,6 @@
     </div>
   </section>
 
-  <!-- Subscribe -->
   <section class="section section--alt" id="subscribe" aria-labelledby="subHeading">
     <div class="container">
       <div class="subscribe">
@@ -110,14 +181,13 @@
     </div>
   </section>
 
-  <!-- About -->
   <section class="section" id="about" aria-labelledby="aboutHeading">
     <div class="container prose">
       <h2 id="aboutHeading">О проекте</h2>
-      <p>Это открытый шаблон медиа-сайта, выполненный в духе популярных share-страниц. Он сохранит вашу фирменную палитру: просто укажите цвета в <code>:root</code> в <strong>styles.css</strong>.</p>
+      <p>Это открытый шаблон медиа-сайта, выполненный в духе share-страниц. Ваша палитра задаётся в блоке <code>:root</code> выше.</p>
       <ul>
         <li>Адаптивная сетка (CSS Grid + Flexbox).</li>
-        <li>Лёгкие карточки статей с тегами, датой, чтением, рейтингом и комментарием.</li>
+        <li>Карточки статей с тегами, датой, чтением, рейтингом и комментариями.</li>
         <li>Мобильное меню и настраиваемые переменные темы.</li>
       </ul>
     </div>
@@ -135,6 +205,47 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+  const nowYear=new Date().getFullYear();document.getElementById('year').textContent=nowYear;
+  document.getElementById('closeNotice').addEventListener('click',()=>{document.querySelector('.notice').style.display='none'});
+  const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',()=>{const e='true'===hamburger.getAttribute('aria-expanded');hamburger.setAttribute('aria-expanded',String(!e));
+    mobileMenu.setAttribute('aria-expanded',String(!e));mobileMenu.style.display=e?'none':'block'});
+  const latest=[{tag:'Питание',date:'25 августа 2025',title:'Арбузы: польза, мифы и как выбирать',minutes:8,rating:5,comments:1},
+    {tag:'Тренировки',date:'24 августа 2025',title:'«Альпинист»: техника и главная ошибка',minutes:12,rating:5,comments:0},
+    {tag:'Здоровье',date:'24 августа 2025',title:'Первые шаги в заботе о коже вокруг глаз',minutes:9,rating:4.8,comments:3},
+    {tag:'Тренировки',date:'22 августа 2025',title:'Бег с захлёстом голени: зачем и как',minutes:9,rating:4.9,comments:0},
+    {tag:'Интервью',date:'22 августа 2025',title:'Йога, медитация и стресс: разговор с экспертом',minutes:13,rating:5,comments:0},
+    {tag:'Питание',date:'21 августа 2025',title:'Незаменимые аминокислоты простыми словами',minutes:10,rating:5,comments:2}];
+  const popular=[{tag:'Питание',date:'18 ноября 2021',title:'Топ-10 простых полезных десертов',minutes:11,rating:4.9,comments:22},
+    {tag:'Тренировки',date:'26 октября 2022',title:'Когда ждать первых результатов от тренировок',minutes:7,rating:4.8,comments:19},
+    {tag:'Гайд',date:'09 января 2024',title:'Утренняя зарядка после 40: базовый набор',minutes:13,rating:5,comments:10},
+    {tag:'Тренировки',date:'12 мая 2023',title:'ТОП-10 упражнений с собственным весом дома',minutes:15,rating:5,comments:12},
+    {tag:'Истории',date:'24 декабря 2024',title:'Как похудеть и удержать вес: реальный опыт',minutes:9,rating:5,comments:2},
+    {tag:'Тренировки',date:'17 декабря 2022',title:'Тонкая талия: 10 упражнений и советы',minutes:11,rating:5,comments:0},
+    {tag:'Тренировки',date:'12 июля 2024',title:'Как быстро прокачать пресс дома и в зале',minutes:25,rating:5,comments:0},
+    {tag:'Здоровье',date:'30 октября 2024',title:'Здоровые стопы: упражнение «перекаты»',minutes:9,rating:4.7,comments:1}];
+  function makeStar(){return `<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>`}
+  function makeImg(){return `<svg width="64" height="64" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14h18zM5 5h14v8.59l-4-4-5 5-2-2-3 3V5z"/></svg>`}
+  function el(html){const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstElementChild}
+  function card({tag,date,title,minutes,rating,comments}){return el(`
+    <article class="card" role="listitem">
+      <div class="card__media">${makeImg()}</div>
+      <div class="card__body">
+        <div class="card__chips">
+          <span class="chip">#${tag}</span><span class="dot" aria-hidden="true"></span><span class="chip">${date}</span>
+        </div>
+        <h3 class="card__title"><a href="#">${title}</a></h3>
+        <div class="card__meta">
+          <span>${minutes} мин</span><span class="dot"></span>
+          <span title="Рейтинг">${makeStar()} ${Number(rating).toFixed(1)}</span>
+          <span class="dot"></span><span title="Комментарии">💬 ${comments}</span>
+        </div>
+      </div>
+    </article>`)}
+  const latestGrid=document.getElementById('latestGrid');const popularGrid=document.getElementById('popularGrid');
+  latest.forEach(i=>latestGrid.appendChild(card(i)));popular.forEach(i=>popularGrid.appendChild(card(i)));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'})}})})
+  </script>
 </body>
-</html>
+</html> 
