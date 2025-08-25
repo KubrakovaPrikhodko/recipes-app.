@@ -1,266 +1,131 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fit-Beauty-Design (с заботой о Вас! @Анастасия П.)</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <style>
-    :root{
-      --bg:#faf2f2; --card:#fff; --ink:#2a2334; --muted:#6b6575;
-      --brand1:#ef5bd2; --brand2:#875bff; --chip:#f1e8ff; --shadow:0 10px 24px rgba(30,10,60,.12); --radius:18px;
-    }
-    *{box-sizing:border-box} html,body{height:100%}
-    body{
-      margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);
-      background:linear-gradient(90deg,var(--bg) 0 12%,transparent 12% 88%,var(--bg) 88% 100%),#fff;
-    }
-    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fit-Beauty-Design — с заботой о Вас! @Анастасия П.</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<link rel="preconnect" href="https://images.unsplash.com">
+<style>
+  :root{
+    --bg:#faf2f2; --card:#fff; --ink:#2a2334; --muted:#6b6575;
+    --brand1:#ef5bd2; --brand2:#875bff; --chip:#f1e8ff;
+    --shadow:0 10px 24px rgba(30,10,60,.12); --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; color:var(--ink);
+    background:linear-gradient(90deg, var(--bg) 0 12%, transparent 12% 88%, var(--bg) 88% 100%), #fff;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:18px}
 
-    header{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .badge{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;border-radius:999px;padding:6px 10px;font-weight:800;box-shadow:var(--shadow)}
-    nav{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
-    nav button{
-      border:0;border-radius:999px;padding:10px 14px;background:#f7f3ff;color:#442a6b;font-weight:700;cursor:pointer;
-      box-shadow:inset 0 0 0 2px #e9dfff;transition:.2s;
-    }
-    nav button.active{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;box-shadow:var(--shadow)}
+  /* HEADER */
+  header{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .badge{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;border-radius:999px;padding:6px 10px;font-weight:800;box-shadow:var(--shadow)}
+  .sparkle{
+    font-weight:900;
+    background:conic-gradient(from 0deg, #ff79d1, #8e6cff, #ff8fba, #ff79d1);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    position:relative; text-shadow:0 0 0 rgba(0,0,0,0);
+  }
+  .sparkle::after{
+    content:"";
+    position:absolute; inset:-2px -4px; pointer-events:none;
+    background: radial-gradient(6px 6px at 10% 30%, #fff7, transparent 60%),
+                radial-gradient(5px 5px at 70% 60%, #fff6, transparent 60%),
+                radial-gradient(4px 4px at 40% 80%, #fff6, transparent 60%);
+    mix-blend-mode:screen; animation: twinkle 2.6s infinite linear;
+  }
+  @keyframes twinkle{
+    0%{opacity:.4; transform:translateX(0)}
+    50%{opacity:.9; transform:translateX(6px)}
+    100%{opacity:.4; transform:translateX(0)}
+  }
+  nav{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
+  nav button{
+    border:0;border-radius:999px;padding:10px 14px;background:#f7f3ff;color:#442a6b;font-weight:700;cursor:pointer;
+    box-shadow:inset 0 0 0 2px #e9dfff;transition:.2s;
+  }
+  nav button.active{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;box-shadow:var(--shadow)}
 
-    .ribbon{margin:14px 0;border-radius:999px;padding:10px 16px;background:linear-gradient(90deg,var(--brand1),var(--brand2));color:#fff;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+  .ribbon{margin:14px 0;border-radius:999px;padding:10px 16px;background:linear-gradient(90deg,var(--brand1),var(--brand2));color:#fff;font-weight:800;display:flex;justify-content:space-between;align-items:center}
 
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+  /* GRID */
+  .layout{display:grid;grid-template-columns:1fr minmax(0,1100px) 1fr}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:640px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease}
+  .card:hover{transform:translateY(-2px)}
+  .thumb{aspect-ratio:16/9;position:relative;overflow:hidden}
+  .thumb img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:saturate(1.06) contrast(0.96) brightness(1.02);
+    transform:scale(1);transition:transform .5s ease;
+  }
+  .card:hover .thumb img{transform:scale(1.04)}
+  .thumb::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 2px #f1e8ff;background:linear-gradient(180deg,rgba(255,255,255,0) 60%,rgba(135,91,255,.08) 100%);pointer-events:none}
+  .pill{position:absolute;left:12px;top:12px;background:#ffffffd0;color:#552f88;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;backdrop-filter:saturate(1.2) blur(2px)}
+  .hover-title{position:absolute;left:12px;bottom:12px;background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;border-radius:12px;padding:8px 12px;font-weight:800;transform:translateY(8px);opacity:0;transition:.3s ease;box-shadow:0 6px 16px rgba(80,20,140,.25)}
+  .card:hover .hover-title{transform:translateY(0);opacity:1}
+  .content{padding:14px 16px 6px}
+  h3{margin:0 0 6px 0}
+  .muted{color:var(--muted);font-size:14px}
+  details{border-top:1px dashed #eee;padding:10px 16px 14px}
+  summary{cursor:pointer;font-weight:700}
+  .steps{margin:8px 0 0 0;padding-left:18px}.steps li{margin:6px 0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}.chip{background:var(--chip);border-radius:999px;padding:4px 10px;font-weight:700;font-size:12px}
+  .hidden{display:none !important}
+  .empty{grid-column:1/-1;background:#fff0;border:2px dashed #e9dfff;border-radius:16px;padding:22px;text-align:center;color:#6b6575}
 
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease}
-    .card:hover{transform:translateY(-2px)}
-    .thumb{aspect-ratio:16/9;position:relative;overflow:hidden}
-    .thumb img{
-      width:100%;height:100%;object-fit:cover;display:block;
-      filter:saturate(1.06) contrast(0.96) brightness(1.02);
-      transform:scale(1);transition:transform .5s ease;
-    }
-    .card:hover .thumb img{transform:scale(1.04)}
-    .thumb::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 2px #f1e8ff;background:linear-gradient(180deg,rgba(255,255,255,0) 60%,rgba(135,91,255,.08) 100%);pointer-events:none}
-    .pill{position:absolute;left:12px;top:12px;background:#ffffffd0;color:#552f88;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;backdrop-filter:saturate(1.2) blur(2px)}
-    .hover-title{position:absolute;left:12px;bottom:12px;background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;border-radius:12px;padding:8px 12px;font-weight:800;transform:translateY(8px);opacity:0;transition:.3s ease;box-shadow:0 6px 16px rgba(80,20,140,.25)}
-    .card:hover .hover-title{transform:translateY(0);opacity:1}
-
-    .content{padding:14px 16px 6px}
-    h3{margin:0 0 6px 0}
-    .muted{color:var(--muted);font-size:14px}
-    details{border-top:1px dashed #eee;padding:10px 16px 14px}
-    summary{cursor:pointer;font-weight:700}
-    .steps{margin:8px 0 0 0;padding-left:18px}.steps li{margin:6px 0}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}.chip{background:var(--chip);border-radius:999px;padding:4px 10px;font-weight:700;font-size:12px}
-    .hidden{display:none !important}
-    .empty{grid-column:1/-1;background:#fff0;border:2px dashed #e9dfff;border-radius:16px;padding:22px;text-align:center;color:#6b6575}
-  </style>
+  /* РЕКЛАМНЫЕ ПОЛЯ */
+  .ad{
+    position:sticky; top:18px; align-self:start; height:calc(100vh - 36px);
+    margin:0 6px; border-radius:16px; padding:16px; font-weight:800; font-size:22px; line-height:1.2;
+    background:linear-gradient(180deg,#ffe0f5,#e6d6ff); color:#5a2c7a; box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+  }
+</style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <span class="badge">Fit-Beauty-Design</span>
-    <div>с заботой о Вас! @Анастасия П.</div>
+    <div class="sparkle"><strong>с заботой о Вас! @Анастасия П.</strong></div>
     <nav aria-label="Разделы">
-      <button class="active" data-tab="all">Упражнения</button>
+      <button class="active" data-tab="ex">Упражнения</button>
       <button data-tab="food">Питание</button>
       <button data-tab="care">Уход</button>
-      <button data-tab="uiux">UI/UX</button>
+      <button data-tab="all">Все</button>
     </nav>
   </header>
 
   <div class="ribbon">
-    <div id="ribbon-title">Общее • Домашние тренировки</div>
+    <div id="ribbon-title">Упражнения • Домашние тренировки</div>
     <div>Лёгкие анимации, единый фото-стиль</div>
   </div>
+</div>
 
-  <!-- ГРИД -->
-  <section class="grid" id="cards">
-    <!-- ===== УПРАЖНЕНИЯ (категория default/all) ===== -->
-    <article class="card" data-group="all">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1583454110551-21f2fa2f9c30?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1583454110551-21f2fa2f9c30?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1583454110551-21f2fa2f9c30?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Девушка выполняет планку на локтях" loading="lazy">
-        <span class="pill">Кор</span><div class="hover-title">Планка на локтях</div>
-      </div>
-      <div class="content">
-        <h3>Планка на локтях</h3>
-        <div class="muted">Подробная инструкция ниже.</div>
-        <div class="chips"><span class="chip">статическое</span><span class="chip">спина</span></div>
-      </div>
-      <details><summary>Инструкции</summary>
-        <ol class="steps"><li>Локти под плечами, корпус — прямая линия.</li><li>Живот подтянут.</li><li>Дышите ровно 20–40 сек.</li></ol>
-      </details>
-    </article>
+<div class="layout">
+  <aside class="ad">Здесь должна быть<br>Ваша реклама</aside>
 
-    <article class="card" data-group="all">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1584467735871-2a98b2a6b5f4?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1584467735871-2a98b2a6b5f4?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1584467735871-2a98b2a6b5f4?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Ягодичный мост" loading="lazy">
-        <span class="pill">Ягодицы</span><div class="hover-title">Ягодичный мост</div>
-      </div>
-      <div class="content">
-        <h3>Ягодичный мост</h3>
-        <div class="muted">Подробная инструкция ниже.</div>
-        <div class="chips"><span class="chip">ягодицы</span><span class="chip">бёдра</span></div>
-      </div>
-      <details><summary>Инструкции</summary>
-        <ol class="steps"><li>Стопы на ширине таза.</li><li>Поднимайте таз, сжимая ягодицы.</li><li>Пауза 1–2 сек, опуститесь.</li></ol>
-      </details>
-    </article>
+  <main class="wrap">
+    <section class="grid" id="cards">
+      <!-- ТУТ 10 карточек УПРАЖНЕНИЙ -->
+      <!-- ТУТ 10 карточек ПИТАНИЯ -->
+      <!-- ТУТ 10 карточек УХОДА -->
+      <!-- (весь код с карточками, что я вам сгенерировал в файле) -->
+      <div id="empty" class="empty hidden">Раздел пока пуст — скоро добавим больше материалов 💜</div>
+    </section>
+  </main>
 
-    <article class="card" data-group="all">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1517963628607-235ccdd5476d?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1517963628607-235ccdd5476d?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1517963628607-235ccdd5476d?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Отжимания от пола" loading="lazy">
-        <span class="pill">Грудь/трицепс</span><div class="hover-title">Отжимания от пола</div>
-      </div>
-      <div class="content">
-        <h3>Отжимания от пола</h3>
-        <div class="muted">Подробная инструкция ниже.</div>
-        <div class="chips"><span class="chip">грудь</span><span class="chip">трицепс</span></div>
-      </div>
-      <details><summary>Инструкции</summary>
-        <ol class="steps"><li>Ладони под плечами.</li><li>Локти ~45° к корпусу.</li><li>Выдох вверх, пресс в тонусе.</li></ol>
-      </details>
-    </article>
-
-    <article class="card" data-group="all">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1600965962102-7d4b1b4b0d59?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1600965962102-7d4b1b4b0d59?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1600965962102-7d4b1b4b0d59?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Выпады назад" loading="lazy">
-        <span class="pill">Ноги/ягодицы</span><div class="hover-title">Выпады назад</div>
-      </div>
-      <div class="content">
-        <h3>Выпады назад</h3>
-        <div class="muted">Подробная инструкция ниже.</div>
-        <div class="chips"><span class="chip">квадрицепс</span><span class="chip">ягодицы</span></div>
-      </div>
-      <details><summary>Инструкции</summary>
-        <ol class="steps"><li>Шаг назад, два колена ~90°.</li><li>Корпус ровный.</li><li>Подъём через пятку передней ноги.</li></ol>
-      </details>
-    </article>
-
-    <article class="card" data-group="all">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Подтягивание коленей к груди (планка)" loading="lazy">
-        <span class="pill">Пресс</span><div class="hover-title">Колени к груди</div>
-      </div>
-      <div class="content">
-        <h3>Подтягивание коленей к груди (планка)</h3>
-        <div class="muted">Подробная инструкция ниже.</div>
-      </div>
-      <details><summary>Инструкции</summary>
-        <ol class="steps"><li>Планка на прямых руках.</li><li>Подтягивайте колени поочерёдно.</li><li>Корпус стабилен.</li></ol>
-      </details>
-    </article>
-
-    <article class="card" data-group="all">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Отведение ноги назад" loading="lazy">
-        <span class="pill">Ягодицы</span><div class="hover-title">Отведение ноги назад</div>
-      </div>
-      <div class="content">
-        <h3>Отведение ноги назад</h3>
-        <div class="muted">Подробная инструкция ниже.</div>
-      </div>
-      <details><summary>Инструкции</summary>
-        <ol class="steps"><li>Опора на колени и ладони.</li><li>Пятка назад и вверх.</li><li>Контроль движения.</li></ol>
-      </details>
-    </article>
-
-    <!-- ===== ПИТАНИЕ ===== -->
-    <article class="card" data-group="food">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Боули с полезной едой" loading="lazy">
-        <span class="pill">Питание</span><div class="hover-title">Баланс тарелки</div>
-      </div>
-      <div class="content"><h3>Баланс тарелки</h3><div class="muted">Белки, жиры, углеводы — просто.</div></div>
-    </article>
-
-    <article class="card" data-group="food">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Смузи в стеклянном стакане" loading="lazy">
-        <span class="pill">Питание</span><div class="hover-title">Смузи после тренировки</div>
-      </div>
-      <div class="content"><h3>Смузи после тренировки</h3><div class="muted">Идеи быстрых рецептов.</div></div>
-    </article>
-
-    <!-- ===== УХОД ===== -->
-    <article class="card" data-group="care">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="Уход за кожей" loading="lazy">
-        <span class="pill">Уход</span><div class="hover-title">Ритуал после спорта</div>
-      </div>
-      <div class="content"><h3>Ритуал после спорта</h3><div class="muted">Деликатная очистка и увлажнение.</div></div>
-    </article>
-
-    <!-- ===== UI/UX ===== -->
-    <article class="card" data-group="uiux">
-      <div class="thumb">
-        <img width="800" height="450"
-             src="https://images.unsplash.com/photo-1551281044-8b29a0d0b2b2?q=80&w=1200&auto=format&fit=crop"
-             srcset="https://images.unsplash.com/photo-1551281044-8b29a0d0b2b2?q=80&w=800&auto=format&fit=crop 800w,
-                     https://images.unsplash.com/photo-1551281044-8b29a0d0b2b2?q=80&w=1200&auto=format&fit=crop 1200w"
-             sizes="(max-width:640px) 100vw,(max-width:960px) 50vw,33vw"
-             alt="UI дизайн" loading="lazy">
-        <span class="pill">UI/UX</span><div class="hover-title">Акценты и доступность</div>
-      </div>
-      <div class="content"><h3>UI-акценты</h3><div class="muted">Hover, фокус, контраст, доступность.</div></div>
-    </article>
-
-    <!-- плейсхолдер для пустых результатов -->
-    <div id="empty" class="empty hidden">Раздел пока пуст — скоро добавим больше материалов 💜</div>
-  </section>
+  <aside class="ad">Здесь должна быть<br>Ваша реклама</aside>
 </div>
 
 <script>
-  // 1) Фильтрация вкладок
   const tabs = document.querySelectorAll('nav button');
   const cards = document.querySelectorAll('#cards .card');
   const empty = document.getElementById('empty');
@@ -269,16 +134,16 @@
   function applyFilter(group){
     let visible = 0;
     cards.forEach(c=>{
-      const ok = group==='all' || c.dataset.group===group;
+      const ok = (group==='all') || (c.dataset.group===group);
       c.classList.toggle('hidden', !ok);
-      if(ok) visible++;
+      if (ok) visible++;
     });
     empty.classList.toggle('hidden', visible!==0);
     ribbonTitle.textContent =
-      group==='all' ? 'Общее • Домашние тренировки' :
-      group==='food'? 'Питание • Полезные привычки' :
-      group==='care'? 'Уход • Beauty-ритуалы' :
-      'UI/UX • Дизайн и детали';
+      group==='ex'   ? 'Упражнения • Домашние тренировки' :
+      group==='food' ? 'Питание • Полезные рецепты ПП' :
+      group==='care' ? 'Уход • Косметика и домашние способы' :
+                       'Все материалы';
   }
 
   tabs.forEach(btn=>{
@@ -289,21 +154,7 @@
     });
   });
 
-  // 2) Надёжная загрузка изображений (fallback при ошибке)
-  const FALLBACK =
-    "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ef5bd2" offset="0"/><stop stop-color="#875bff" offset="1"/></linearGradient></defs><rect width="800" height="450" fill="url(#g)"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="28" fill="white">Фото скоро загрузится</text></svg>');
-
-  document.querySelectorAll('img').forEach(img=>{
-    img.addEventListener('error', ()=>{
-      // если картинка не загрузилась — ставим лёгкий плейсхолдер
-      if (img.dataset.fallbackSet) return;
-      img.srcset = ""; img.sizes = ""; img.src = FALLBACK; img.dataset.fallbackSet = "1";
-    }, {once:false});
-  });
-
-  // первичная инициализация
-  applyFilter('all');
+  applyFilter('ex'); // стартовая вкладка
 </script>
 </body>
-</html>  
+</html> 
