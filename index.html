@@ -1,209 +1,299 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Glow&Flow — Фитнес, Красота и Дизайн</title>
-  <meta name="description" content="Свежие тренды спорта, красоты и дизайна: подборки, разборы, видео." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#fff7ec; --card:#ffffff; --ink:#18181b; --muted:#6b7280;
-      --accent:#ff4db8; --accent-2:#7a5cff; --accent-3:#ff8ad7;
-      --ring: color-mix(in srgb, var(--accent) 35%, transparent);
-      --shadow: 0 10px 30px rgba(122,92,255,.12);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1200px;margin:auto;padding:20px}
-    header{position:sticky;top:0;background:linear-gradient(180deg,#fff 0%,#fff7ec 100%);border-bottom:1px solid #f2e8d9;z-index:20}
-    header .row{display:flex;align-items:center;gap:16px;justify-content:space-between}
-    .logo{font-family:Montserrat,system-ui;font-weight:800;letter-spacing:.3px}
-    .logo span{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-    nav{display:flex;gap:10px;flex-wrap:wrap}
-    nav a{padding:10px 14px;border-radius:999px;background:#fff;border:1px solid #f1e6ff;color:#5b21b6}
-    nav a.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent}
-    .search{display:flex;align-items:center;gap:10px}
-    .search input{border:1px solid #e8defc;background:#fff;border-radius:999px;padding:10px 14px;min-width:200px;outline:none}
-    .ad-top,.ad-side,.ad-inline{display:grid;place-items:center;border:2px dashed #ffd0f0;color:#a21caf;background:#fff;border-radius:12px}
-    .ad-top{height:120px;margin:16px 0}
-    .hero{border-radius:20px;padding:28px;background:
-      radial-gradient(1200px 300px at 0% 0%, #ffe4f5 0,#fff7ec 55%, transparent 70%),
-      linear-gradient(135deg, rgba(255,77,184,.16), rgba(122,92,255,.16));
-      border:1px solid #ffe5f7; box-shadow:var(--shadow); margin:8px 0 18px;
-    }
-    .hero h1{font-family:Montserrat;font-size:36px;margin:0 0 8px;color:#b91c1c}
-    .hero p{margin:0;color:#444}
-    .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .chip{background:#fff;border:1px solid #f0e0ff;border-radius:999px;padding:8px 12px;font-size:14px;color:#6b21a8}
-    main{display:grid;grid-template-columns:1fr;gap:18px}
-    @media(min-width:980px){ main{grid-template-columns:3fr 1fr} }
-    .grid{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:720px){ .grid{grid-template-columns:1fr 1fr} }
-    @media(min-width:1100px){ .grid{grid-template-columns:1fr 1fr 1fr} }
-    .card{background:var(--card);border-radius:var(--radius);border:1px solid #f3eaff;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
-    .thumb{aspect-ratio:16/9;background:#f6f0ff;display:block;width:100%;object-fit:cover}
-    .card .body{padding:14px}
-    .meta{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;margin:6px 0}
-    .title{font:600 18px/1.3 Montserrat,Inter;margin:4px 0 6px}
-    .btn{display:inline-grid;place-items:center;height:40px;padding:0 14px;border-radius:10px;border:1px solid #eddcff;background:#fff;color:#6b21a8}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:none}
-    .video{border-radius:16px;overflow:hidden;border:1px solid #f1e6ff;box-shadow:var(--shadow)}
-    iframe{width:100%;height:315px;border:0}
-    .side{display:grid;gap:16px}
-    .side .widget{background:#fff;border:1px solid #f3eaff;border-radius:14px;box-shadow:var(--shadow);padding:14px}
-    footer{margin-top:30px;background:#fff;border-top:1px solid #f2e8d9}
-    footer .wrap{display:grid;gap:8px}
-    .badge{display:inline-block;padding:2px 8px;border-radius:6px;background:#fdf2ff;color:#7a22a3;font-weight:600;font-size:12px}
-    .native-ad{padding:14px;text-align:center;background:#fff0fa;border:1px dashed #ffc6ec;border-radius:12px}
-    .hidden{display:none !important}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fit•Beauty•Design — тренды и практика</title>
+
+<!-- анти-кэш, чтобы страница сразу обновлялась на GitHub Pages -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+
+<style>
+:root{
+  --bg:#fff8fb;
+  --card:#ffffff;
+  --ink:#241c2b;
+  --muted:#6f6182;
+  --accent1:#ff5bd9;
+  --accent2:#7c4dff;
+  --accent3:#ff8a65;
+  --ring: 0 0 0 3px color-mix(in oklab, var(--accent2) 30%, transparent);
+  --shadow:0 10px 30px rgba(45,16,73,.12);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial;
+  color:var(--ink); background:linear-gradient(180deg,#fff,#f9f0ff 20%,#fff8fb);
+}
+
+.container{max-width:1100px; margin:auto; padding:20px;}
+
+/* шапка */
+.header{
+  display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:center;
+  padding:12px 0 4px;
+}
+.logo{
+  display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px;
+  font-size:20px; color:var(--ink);
+}
+.logo-badge{
+  width:40px;height:40px;border-radius:12px;
+  background:conic-gradient(from 210deg, var(--accent2), var(--accent1));
+  box-shadow:var(--shadow);
+  display:grid; place-items:center; color:#fff; font-weight:900;
+}
+.nav{
+  display:flex; flex-wrap:wrap; gap:10px;
+}
+.tab{
+  appearance:none; border:0; border-radius:14px; padding:10px 16px;
+  background: #f1e8ff; color:#4a2d7a; font-weight:700; cursor:pointer;
+  transition:.2s transform, .2s background;
+}
+.tab[aria-selected="true"]{background:linear-gradient(90deg,var(--accent2),var(--accent1)); color:#fff; box-shadow:var(--shadow)}
+.tab:active{transform:translateY(1px)}
+.actions{display:flex; gap:8px}
+.btn{
+  border:0; border-radius:12px; padding:10px 14px; font-weight:700; cursor:pointer;
+  color:#fff; background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  box-shadow:var(--shadow)
+}
+
+/* рекламные баннеры */
+.ads{
+  display:grid; grid-template-columns:1fr; gap:12px; margin:16px 0 6px;
+}
+.ad{
+  border-radius:16px; padding:14px 16px; color:#fff; font-weight:800; letter-spacing:.3px;
+  background:linear-gradient(120deg, var(--accent2), var(--accent1));
+  display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow);
+}
+.ad small{opacity:.9; font-weight:600}
+
+/* грид карточек */
+.grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:12px;
+}
+@media (max-width:980px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){
+  .header{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+}
+
+.card{
+  background:var(--card); border-radius:18px; overflow:hidden; box-shadow:var(--shadow);
+  display:grid; grid-template-rows:auto 1fr auto;
+}
+.card .thumb{aspect-ratio: 16/10; background:#f3eaff; display:block; width:100%}
+.card .body{padding:14px 14px 10px}
+.card h3{margin:0 0 6px; font-size:20px}
+.badge{display:inline-block; font-size:12px; color:#fff; padding:4px 8px; border-radius:999px; background:linear-gradient(90deg,var(--accent2),var(--accent1))}
+.meta{color:var(--muted); font-size:13px; margin-top:4px}
+.card details{padding:0 14px 12px}
+.card summary{
+  display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none; color:#4a2d7a; font-weight:700;
+}
+.card summary::-webkit-details-marker{display:none}
+.card summary:focus-visible{outline:var(--ring)}
+ul.steps{margin:8px 0 0 18px}
+.footerNote{margin:26px 0 10px; color:var(--muted); font-size:13px}
+
+/* маленький индикатор «активной» вкладки */
+.kit{
+  margin-left:10px; font-size:12px; color:#fff; background:linear-gradient(90deg,var(--accent2),var(--accent1));
+  padding:2px 8px; border-radius:999px;
+}
+
+/* всплывающая подсказка-ссылка на редактирование (для владельца) */
+.ownerTip{
+  margin-top:8px; font-size:12px; color:var(--muted);
+}
+.ownerTip a{color:#7c4dff; font-weight:700; text-decoration:none}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap row">
-      <div class="logo"><span>Glow&Flow</span> • фитнес • красота • дизайн</div>
-      <nav id="tabs">
-        <a data-tab="all" class="active">Все</a>
-        <a data-tab="fitness">Фитнес</a>
-        <a data-tab="beauty">Красота</a>
-        <a data-tab="design">Дизайн</a>
-        <a data-tab="trends">Тренды</a>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <div class="logo-badge">F•B•D</div>
+        <div>Fit<span style="color:var(--accent2)">•</span>Beauty<span style="color:var(--accent1)">•</span>Design</div>
+      </div>
+
+      <nav class="nav" role="tablist" aria-label="Разделы сайта">
+        <button class="tab" role="tab" aria-selected="true" data-tab="fitness">Фитнес <span class="kit" id="count-fitness">10</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="beauty">Красота <span class="kit" id="count-beauty">10</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="design">Дизайн <span class="kit" id="count-design">10</span></button>
       </nav>
-      <div class="search">
-        <input id="search" placeholder="Поиск..." />
-      </div>
-    </div>
-  </header>
 
-  <div class="wrap">
-    <div class="ad-top" id="ad-top">РЕКЛАМА (970×250 / 320×100)</div>
-
-    <section class="hero">
-      <h1>Мировые тренды — просто и красиво</h1>
-      <p>Короткие гайды, наглядные карточки, видео и подборки по спорту, уходу и дизайну.</p>
-      <div class="chips">
-        <span class="chip">Домашние тренировки</span>
-        <span class="chip">Скинкейр</span>
-        <span class="chip">UI/UX</span>
-        <span class="chip">Питание</span>
-        <span class="chip">Макияж</span>
+      <div class="actions">
+        <button class="btn" id="shuffleBtn" title="Перемешать карточки">Случайно</button>
       </div>
+    </header>
+
+    <!-- баннеры -->
+    <section class="ads" aria-label="Реклама">
+      <div class="ad">ЗДЕСЬ ДОЛЖНА БЫТЬ ВАША РЕКЛАМА <small>баннер 1100×120</small></div>
+      <div class="ad" style="background:linear-gradient(120deg,#fc6fd9,#8f68ff,#5f2fff)">ЗДЕСЬ ДОЛЖНА БЫТЬ ВАША РЕКЛАМА <small>баннер 1100×90</small></div>
     </section>
 
-    <main>
-      <section>
-        <div id="grid" class="grid"></div>
+    <!-- зона карточек -->
+    <main id="cards" class="grid" aria-live="polite"></main>
 
-        <div class="video" style="margin-top:20px">
-          <iframe id="yt" loading="lazy"
-            src="https://www.youtube.com/embed/UBMk30rjy0o"
-            title="Тренировка всего тела" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-          </iframe>
-        </div>
-      </section>
-
-      <aside class="side">
-        <div class="widget">
-          <div style="font:700 16px Montserrat;margin-bottom:8px">Подписка</div>
-          <p class="muted" style="margin:0 0 8px;color:var(--muted)">Новые материалы — в телеграм:</p>
-          <a class="btn primary" href="#" target="_blank" rel="noopener">Открыть канал</a>
-        </div>
-
-        <div class="ad-side" style="height:600px">РЕКЛАМА (300×600)</div>
-
-        <div class="widget">
-          <div style="font:700 16px Montserrat;margin-bottom:8px">Топ недели</div>
-          <ul id="top" style="padding-left:18px;margin:0"></ul>
-        </div>
-      </aside>
-    </main>
+    <p class="ownerTip">Подсказка: чтобы заменить картинки на настоящие, просто отредактируйте этот файл и подставьте ссылки на фото в массивы ниже.</p>
+    <p class="footerNote">© 2025 Fit•Beauty•Design. Обновляйся, трендись, сияй ✨</p>
   </div>
 
-  <footer>
-    <div class="wrap">
-      <div>© Glow&Flow. Материалы — для ознакомления, не мед.совет.</div>
-      <div style="color:var(--muted);font-size:14px">
-        Реклама и сотрудничество: <a href="mailto:hello@example.com">hello@example.com</a>
-      </div>
+<script>
+/* ================== генератор «картинок» ==================
+   Чтобы сайт работал одним файлом, картинки создаём на лету
+   как SVG (data:image/svg+xml). Их всегда загрузит GitHub Pages.
+*/
+function svgPlaceholder(title, emoji, gradA='#7c4dff', gradB='#ff5bd9'){
+  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const t = esc(title);
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="${gradA}"/>
+        <stop offset="1" stop-color="${gradB}"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="750" rx="36" fill="url(#g)"/>
+    <g font-family="Inter,Segoe UI,system-ui" fill="#fff" text-anchor="middle">
+      <text x="600" y="370" font-size="72" font-weight="800">${t}</text>
+      <text x="600" y="470" font-size="80">${emoji ?? ''}</text>
+    </g>
+  </svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+/* ================== ДАННЫЕ (10 карточек на раздел) ================== */
+/* ФИТНЕС — живот, ягодицы, руки */
+const fitnessItems = [
+  {title:"Вакуум для пресса", tag:"Живот · 5 мин", emoji:"🫁",
+   steps:["Встаньте прямо, полностью выдохните.","Втяните живот под рёбра и задержите дыхание на 10–15 сек.","Расслабьтесь и повторите 5–7 раз."]},
+  {title:"Планка классическая", tag:"Живот/кор · 60 сек", emoji:"🧱",
+   steps:["Локти под плечами, корпус — прямая линия.","Не прогибайте поясницу.","3–4 подхода по 30–60 сек."]},
+  {title:"Русские скрутки", tag:"Косые мышцы · 12×3", emoji:"🌀",
+   steps:["Сядьте, корпус 45°, ноги приподняты.","Поворачивайте корпус, касаясь пола руками.","12–16 раз × 3 подхода."]},
+  {title:"Ягодичный мост", tag:"Ягодицы · 15×3", emoji:"🍑",
+   steps:["Лягте на спину, стопы у таза.","Поднимайте таз, сжимая ягодицы вверху.","Задержка 2 сек, 15×3."]},
+  {title:"Выпады назад", tag:"Бёдра/ягодицы · 12×3", emoji:"↩️",
+   steps:["Ширина плеч, шаг назад на носок.","Колено передней ноги над пяткой.","По 12 на каждую ногу × 3."]},
+  {title:"Румынская тяга без веса", tag:"Бёдра/ягодицы · 12×3", emoji:"🏋️",
+   steps:["Ноги чуть согнуты, спина ровная.","Ведите таз назад, корпус наклоните.","Вернитесь, напрягите заднюю цепь."]},
+  {title:"Отжимания", tag:"Грудь/трицепс · 10×3", emoji:"💪",
+   steps:["Ладони чуть шире плеч.","Корпус — прямая линия, локти ~45°.","10–15 × 3. На коленях — если сложно."]},
+  {title:"Отжимания узкие", tag:"Трицепс · 8×3", emoji:"🫳",
+   steps:["Ладони близко, локти вдоль корпуса.","Опускайтесь медленно, мощно вверх.","8–12 × 3."]},
+  {title:"Подъём стулом", tag:"Дельты · 12×3", emoji:"🪑",
+   steps:["Сядьте на край, возьмитесь за кромку стула.","Тяните корпус вверх руками, удерживая пресс.","12 × 3."]},
+  {title:"Супермен", tag:"Спина/ягодицы · 12×3", emoji:"🦸",
+   steps:["Лёжа на животе, вытяните руки.","Поднимайте руки и ноги одновременно.","Задержка 1 сек, 12 × 3."]}
+].map(x=>({...x, img:svgPlaceholder(x.title,x.emoji)}));
+
+/* КРАСОТА — уход дома */
+const beautyItems = [
+  {title:"Двойное очищение", tag:"Этап 1", emoji:"🫧",
+   steps:["Сначала гидрофильное масло — растворяет SPF/макияж.","Затем мягкий гель — смывает остатки."]},
+  {title:"Кислотный тоник 2–3×нед", tag:"Ровный тон", emoji:"🧪",
+   steps:["Нанести на сухую кожу, избегая глаз.","Не совмещайте с ретинолом в один вечер."]},
+  {title:"Сыворотка с ниацинамидом", tag:"Баланс себума", emoji:"🧴",
+   steps:["3–4 капли на влажную кожу.","Совместима с большинством активов."]},
+  {title:"Ретинол вечерний", tag:"Антиэйдж", emoji:"🌙",
+   steps:["Гороховую дозу 2–3×нед, постепенно повышая.","Обязательно SPF утром."]},
+  {title:"Увлажняющая маска", tag:"SOS-уход", emoji:"🥒",
+   steps:["Нанести толстым слоем на 10–15 минут.","Снять салфеткой, остатки вбить."]},
+  {title:"Массаж гуаша", tag:"Лимфодренаж", emoji:"🪬",
+   steps:["На масло/крем, движения по массажным линиям.","5–7 минут, не растягивать кожу."]},
+  {title:"Крем с церамидами", tag:"Барьер", emoji:"🧈",
+   steps:["Закрываем уход после сывороток.","Зимой — более плотная текстура."]},
+  {title:"SPF 50 ежедневно", tag:"Утро", emoji:"🛡️",
+   steps:["2 пальца на лицо, 1 — на шею.","Обновлять каждые 2–3 часа на солнце."]},
+  {title:"Пилинг для тела", tag:"Раз в неделю", emoji:"🧂",
+   steps:["Скраб или AHA/BHA-лосьон по влажной коже.","Смыть и нанести крем."]},
+  {title:"Питание рук и кутикулы", tag:"Каждый день", emoji:"✋",
+   steps:["Крем после каждого мытья рук.","Масло в кутикулу на ночь."]}
+].map(x=>({...x, img:svgPlaceholder(x.title,x.emoji,'#ff8a65','#ff5bd9')}));
+
+/* ДИЗАЙН — тренды 2025 */
+const designItems = [
+  {title:"Лайм-вош (limewash)", tag:"Матовая глубина", emoji:"🎨",
+   steps:["Эффект мягких облаков, супер-тренд.","Качество: высокое; Практичность: средняя (боится мокрой уборки).","Монтаж: 1–2 дня."]},
+  {title:"Микроцемент", tag:"Монолитный вид", emoji:"🧱",
+   steps:["Идеален для кухонь/ванн, без швов.","Качество: очень высокое; Практичность: высокая.","Монтаж: 2–3 дня."]},
+  {title:"Венецианская штукатурка", tag:"Премиум-глянец", emoji:"🏛️",
+   steps:["Глубокая полировка, переливы.","Качество: очень высокое; Практичность: средняя.","Монтаж: 3–5 дней."]},
+  {title:"3D-панели из МДФ", tag:"Тёплая фактура", emoji:"🪵",
+   steps:["Ламели/волны, скрытая подсветка.","Качество: высокое; Практичность: высокая.","Монтаж: быстро — 1 день."]},
+  {title:"Акустические панели", tag:"Тишина и стиль", emoji:"🔇",
+   steps:["Фетр + ламели, улучшает звук.","Качество: высокое; Практичность: высокая.","Монтаж: 1 день."]},
+  {title:"Эко-обои на флизелине", tag:"Быстрый ремонт", emoji:"🧻",
+   steps:["Дышащие, легко клеятся.","Качество: хорошее; Практичность: средняя-высокая.","Монтаж: 1 день."]},
+  {title:"Виниловые обои", tag:"Моющиеся", emoji:"💧",
+   steps:["Для кухни/коридора.","Качество: хорошее; Практичность: высокая.","Монтаж: 1 день."]},
+  {title:"Штукатурка «бетон»", tag:"Лофт-эстетика", emoji:"🏗️",
+   steps:["Серые текстуры, сочетать с деревом.","Качество: высокое; Практичность: высокая.","Монтаж: 1–2 дня."]},
+  {title:"Декоративные карты/терраццо", tag:"Игривая фактура", emoji:"🟣",
+   steps:["Вкрапления, индивидуальность.","Качество: высокое; Практичность: средняя-высокая.","Монтаж: 2 дня."]},
+  {title:"Панели ПВХ без швов", tag:"Супер-быстро", emoji:"🧩",
+   steps:["Влажные зоны, бюджет-френдли.","Качество: среднее-хорошее; Практичность: высокая.","Монтаж: часы."]}
+].map(x=>({...x, img:svgPlaceholder(x.title,x.emoji,'#7c4dff','#ff8a65')}));
+
+/* ============ рендер карточек ============ */
+const CARDS = document.getElementById('cards');
+const tabs = document.querySelectorAll('.tab');
+const byTab = { fitness: fitnessItems, beauty: beautyItems, design: designItems };
+
+function cardTemplate(item){
+  return `
+  <article class="card">
+    <img class="thumb" alt="${item.title}" src="${item.img}">
+    <div class="body">
+      <div class="badge">${item.tag}</div>
+      <h3>${item.title}</h3>
+      <p class="meta">${item.subtitle ?? ''}</p>
     </div>
-  </footer>
+    <details>
+      <summary>Инструкции</summary>
+      <ul class="steps">
+        ${item.steps.map(s=>`<li>${s}</li>`).join('')}
+      </ul>
+    </details>
+  </article>`;
+}
 
-  <script>
-    const state = { tab:'all', items:[], filtered:[] };
+function render(tab='fitness'){
+  const list = byTab[tab];
+  CARDS.innerHTML = list.map(cardTemplate).join('');
+  tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.tab===tab ? 'true':'false'));
+  // обновим счётчики (на всякий случай)
+  document.getElementById('count-fitness').textContent = byTab.fitness.length;
+  document.getElementById('count-beauty').textContent  = byTab.beauty.length;
+  document.getElementById('count-design').textContent  = byTab.design.length;
+}
 
-    const elGrid = document.querySelector('#grid');
-    const tabs = document.querySelectorAll('#tabs a');
-    tabs.forEach(t=>t.onclick = ()=>{
-      tabs.forEach(x=>x.classList.remove('active'));
-      t.classList.add('active');
-      state.tab = t.dataset.tab;
-      render();
-      scrollTo({top:0,behavior:'smooth'});
-    });
+tabs.forEach(btn=>{
+  btn.addEventListener('click', ()=> render(btn.dataset.tab));
+});
+document.getElementById('shuffleBtn').addEventListener('click', ()=>{
+  const current = [...CARDS.children];
+  for(let i=current.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    CARDS.appendChild(current[j]);
+  }
+});
 
-    const q = document.querySelector('#search');
-    q.addEventListener('input',()=>render());
-
-    // Render cards + simple native ad blocks
-    function render(){
-      const term = q.value?.trim().toLowerCase();
-      let list = [...state.items];
-      if(state.tab!=='all') list = list.filter(x=>x.category===state.tab || (state.tab==='trends' && x.trendScore>=80));
-      if(term) list = list.filter(x=> (x.title+x.excerpt).toLowerCase().includes(term));
-
-      elGrid.innerHTML = '';
-      list.forEach((item, i)=>{
-        if(i && i%6===0){
-          elGrid.insertAdjacentHTML('beforeend', `<div class="native-ad">Нативная реклама / партнерская интеграция</div>`);
-        }
-        elGrid.insertAdjacentHTML('beforeend', cardHTML(item));
-      });
-
-      // top list (3 best by trendScore)
-      const top = [...state.items].sort((a,b)=>b.trendScore-a.trendScore).slice(0,5);
-      document.querySelector('#top').innerHTML = top.map(x=>`<li><a href="${x.url||'#'}" target="_blank" rel="noopener">${x.title}</a></li>`).join('');
-    }
-
-    function cardHTML(x){
-      const badge = x.trendScore>=85 ? `<span class="badge">В тренде</span>` : '';
-      return `
-      <article class="card">
-        <img class="thumb" loading="lazy" src="${x.image}" alt="${x.title}">
-        <div class="body">
-          <div class="meta">
-            <span>${x.categoryName}</span> • <span>${x.read} мин</span> ${badge}
-          </div>
-          <div class="title">${x.title}</div>
-          <p style="margin:6px 0 12px;color:var(--muted)">${x.excerpt}</p>
-          <div style="display:flex;gap:8px">
-            ${x.url ? `<a class="btn primary" href="${x.url}" target="_blank" rel="noopener">Читать</a>`:``}
-            ${x.video ? `<a class="btn" href="#video" onclick="document.getElementById('yt').src='https://www.youtube.com/embed/${x.video}';">Смотреть</a>`:``}
-          </div>
-        </div>
-      </article>`;
-    }
-
-    // Load content.json from the same folder
-    fetch('content.json?nocache=' + Date.now())
-      .then(r=>r.json())
-      .then(data=>{
-        // map categories to readable names
-        const names = {fitness:'Фитнес',beauty:'Красота',design:'Дизайн',trends:'Тренды'};
-        state.items = data.map(x=>({...x, categoryName:names[x.category]||'Темы'}));
-        render();
-      })
-      .catch(()=>{ elGrid.innerHTML = '<p>Не удалось загрузить контент.</p>'; });
-
-    // ------- AdSense placeholder (вставь код после одобрения) -------
-    // Пример:
-    // const s = document.createElement('script');
-    // s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX';
-    // s.crossOrigin = 'anonymous'; document.body.appendChild(s);
-  </script>
+/* старт: Фитнес */
+render('fitness');
+</script>
 </body>
-</html>
+
+   
