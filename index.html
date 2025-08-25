@@ -1,474 +1,274 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ваш стиль. С заботой о Вас! @Анастасия П.</title>
-  <meta name="description" content="Ваш стиль. С заботой о Вас! @Анастасия П. Фитнес, питание и уход в одном месте: статьи, видео, практические советы.">
+  <meta name="description" content="Домашний фитнес, правильное питание и уход за собой. Видео и карточки с описаниями.">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ваш стиль. С заботой о Вас! @Анастасия П.">
+  <meta property="og:description" content="Фитнес, питание и уход — всё для дома.">
+  <meta property="og:image" content="og-cover.jpg">
 
   <style>
   :root{
-    /* БЫСТРАЯ НАСТРОЙКА ПАЛИТРЫ */
-    --brand:#2563eb;         /* основной цвет (можно поменять) */
-    --brand-ink:#ffffff;     /* текст на brand */
-    --accent:#10b981;        /* акцент */
-    --bg:#f6f8fb;            /* фон страницы */
-    --surface:#ffffff;       /* карточки / панели */
-    --surface-2:#f1f5f9;     /* вторичный фон */
-    --text:#111827;          /* текст */
-    --muted:#6b7280;         /* вторичный текст */
+    --brand:#2563eb;
+    --accent:#10b981;
+    --bg:#f6f8fb;
+    --surface:#ffffff;
+    --text:#111827;
     --border:#e5e7eb;
-    --chip:#eef2ff;
-    --shadow:0 10px 24px rgba(2,6,23,.08);
+    --muted:#6b7280;
     --radius:14px;
     --radius-sm:10px;
-    --container:1160px;
+    --shadow:0 10px 24px rgba(2,6,23,.08);
   }
-
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-    background:
-      radial-gradient(1200px 800px at 20% -200px, rgba(37,99,235,.08), transparent 60%),
-      radial-gradient(1200px 800px at 100% -200px, rgba(16,185,129,.08), transparent 60%),
-      var(--bg);
-    color:var(--text);
-    line-height:1.65;
-  }
-  .container{max-width:var(--container);margin:0 auto;padding:0 20px}
-  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text);line-height:1.6;}
+  .container{max-width:1160px;margin:0 auto;padding:0 20px;}
+  a{text-decoration:none;color:inherit;}
 
   /* Header */
-  .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-  .header__inner{display:flex;align-items:center;gap:20px;min-height:68px}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);font-weight:800;letter-spacing:.2px}
-  .brand__logo{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent))}
-  .brand__name{white-space:nowrap}
-  .nav{display:flex;gap:14px;margin-left:auto}
-  .nav a,.nav--mobile a{color:var(--muted);text-decoration:none;font-weight:600}
-  .nav a:hover,.nav--mobile a:hover{color:var(--text)}
-  .btn{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--text);
-       padding:10px 16px;border-radius:var(--radius-sm);font-weight:700;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
-  .btn--primary{background:var(--brand);border-color:transparent;color:var(--brand-ink)}
-  .btn--primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
-  .hamburger{display:none;width:44px;height:44px;border:1px solid var(--border);background:transparent;border-radius:var(--radius-sm);position:relative}
-  .hamburger span{position:absolute;left:10px;right:10px;height:2px;background:#111827;transition:.2s}
-  .hamburger span:nth-child(1){top:12px}.hamburger span:nth-child(2){top:20px}.hamburger span:nth-child(3){top:28px}
-  .nav--mobile{display:none;border-top:1px solid var(--border);background:var(--surface)}
-  .nav--mobile a{display:block;padding:14px 20px;border-bottom:1px solid var(--border)}
+  .header{position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--border);}
+  .header__inner{display:flex;align-items:center;justify-content:space-between;min-height:64px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--text);}
+  .brand__logo{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));}
+  .nav{display:flex;gap:14px;}
+  .nav a{color:var(--muted);font-weight:600;}
+  .nav a:hover{color:var(--text);}
 
   /* Hero */
-  .hero{padding:42px 0 28px;border-bottom:1px solid var(--border)}
-  .hero__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
-  .hero__content h1{margin:0 0 10px;font-size:clamp(26px,3.2vw,42px);line-height:1.1}
-  .hero__content .lead{margin:0 0 16px;color:var(--muted)}
-  .hero__actions{display:flex;gap:12px;flex-wrap:wrap}
-  .hero__art{display:flex;justify-content:center;align-items:center}
-  .hero__blob{width:100%;max-width:480px;aspect-ratio:1/1;border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(37,99,235,.32) 0, transparent 60%),
-      radial-gradient(circle at 70% 70%, rgba(16,185,129,.32) 0, transparent 50%),
-      linear-gradient(45deg, #fff, var(--surface-2));
-    border:1px solid var(--border);box-shadow:var(--shadow)}
-
-  /* Sections */
-  .section{padding:34px 0}
-  .section--alt{background:var(--surface-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .section__head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
-  .section__head h2{margin:0;font-size:clamp(20px,2.2vw,28px)}
-  .link{color:var(--brand);text-decoration:none;font-weight:700}
-  .link:hover{text-decoration:underline}
-
-  /* Video */
-  .video{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);background:#000}
-  .video iframe{width:100%;height:352px;display:block;border:0}
-  .video__fallback{padding:10px;background:#fff;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-  .video__fallback a{color:var(--brand);text-decoration:none;font-weight:700}
-
-  /* Grid / Cards */
-  .grid{display:grid;gap:18px}
-  .grid--3{grid-template-columns:repeat(3,1fr)}
-  .grid--4{grid-template-columns:repeat(4,1fr)}
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .12s}
-  .card:hover{transform:translateY(-2px)}
-  .card__media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e5e7eb}
-  .card__media img{width:100%;height:100%;object-fit:cover;display:block}
-  .card__body{padding:14px;display:flex;flex-direction:column;gap:8px}
-  .chip{align-self:flex-start;background:var(--chip);color:#3730a3;border:1px solid #e0e7ff;font-weight:700;font-size:12px;padding:4px 8px;border-radius:999px}
-  .card__title{margin:0;font-size:18px;line-height:1.3}
-  .card__title a{color:var(--text);text-decoration:none}
-  .card__title a:hover{color:var(--brand)}
-  .card__desc{margin:0;color:var(--muted);font-size:14px}
-  .card__meta{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13px}
-  .dot{width:5px;height:5px;background:#d1d5db;border-radius:50%;display:inline-block}
-
-  /* Subscribe / Footer */
-  .subscribe{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center}
-  .subscribe__form{display:flex;gap:10px}
-  .subscribe input{flex:1;background:#fff;border:1px solid var(--border);color:var(--text);border-radius:var(--radius-sm);padding:12px}
-  .subscribe input::placeholder{color:#9ca3af}
-
-  .footer{border-top:1px solid var(--border);background:var(--surface)}
-  .footer__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
-  .footer__nav{display:flex;gap:12px;flex-wrap:wrap}
-  .footer__nav a{color:var(--muted);text-decoration:none}
-  .footer__nav a:hover{color:var(--text)}
-
-  /* Responsive */
-  @media (max-width:1024px){.grid--4{grid-template-columns:repeat(3,1fr)}}
-  @media (max-width:860px){
-    .hero__inner{grid-template-columns:1fr}
-    .subscribe{grid-template-columns:1fr}
-    .grid--3{grid-template-columns:repeat(2,1fr)}
-    .header__cta{display:none}
-    .nav{display:none}
-    .hamburger{display:block;margin-left:auto}
-    .nav--mobile[aria-expanded="true"]{display:block}
-  }
-  @media (max-width:540px){
-    .grid--3,.grid--4{grid-template-columns:1fr}
-    .footer__inner{flex-direction:column;align-items:flex-start}
-    .video iframe{height:220px}
-  }
+  .hero{padding:40px 0;border-bottom:1px solid var(--border);}
+  .hero__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;}
+  .hero__content h1{margin:0 0 10px;font-size:32px;line-height:1.2;}
+  .hero__content .lead{color:var(--muted);margin-bottom:16px;}
+  .btn{padding:10px 16px;border-radius:var(--radius-sm);font-weight:700;cursor:pointer;}
+  .btn--primary{background:var(--brand);color:#fff;border:0;}
+  .btn--primary:hover{filter:brightness(1.05);}
+  .btn--ghost{border:1px solid var(--border);background:var(--surface);color:var(--text);}
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="#" aria-label="На главную">
-        <span class="brand__logo" aria-hidden="true"></span>
-        <span class="brand__name">Ваш стиль. С заботой о Вас! @Анастасия П.</span>
-      </a>
-
-      <nav class="nav" aria-label="Основная навигация">
-        <a href="#fitness">Фитнес</a>
-        <a href="#nutrition">Питание</a>
-        <a href="#care">Уход</a>
-        <a href="#subscribe">Подписка</a>
-        <a href="#about">О проекте</a>
-      </nav>
-
-      <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Меню</span>
-      </button>
-    </div>
-    <nav class="nav--mobile" id="mobileMenu" aria-label="Мобильная навигация">
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="#">
+      <span class="brand__logo"></span>
+      <span class="brand__name">Ваш стиль. С заботой о Вас! @Анастасия П.</span>
+    </a>
+    <nav class="nav">
       <a href="#fitness">Фитнес</a>
       <a href="#nutrition">Питание</a>
       <a href="#care">Уход</a>
+      <a href="#popular">Популярное</a>
       <a href="#subscribe">Подписка</a>
       <a href="#about">О проекте</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <h1>Фитнес, питание и уход — просто и по делу</h1>
-        <p class="lead">Подборки упражнений, тарелки здоровья и ежедневные ритуалы заботы. Видео-разборы и практические карточки без «воды».</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#fitness">К разделам</a>
-          <a class="btn" href="#popular">Популярное</a>
-        </div>
-      </div>
-      <div class="hero__art" aria-hidden="true">
-        <div class="hero__blob"></div>
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <h1>Фитнес, питание и уход — просто и по делу</h1>
+      <p class="lead">Домашние тренировки, тарелки здоровья и ежедневные ритуалы заботы. Видео и карточки с описаниями.</p>
+      <div>
+        <a class="btn btn--primary" href="#fitness">К разделам</a>
+        <a class="btn btn--ghost" href="#popular">Популярное</a>
       </div>
     </div>
-  </section>
-
-  <!-- Фитнес -->
-  <section class="section" id="fitness" aria-labelledby="fitnessHeading">
-    <div class="container">
-      <div class="section__head">
-        <h2 id="fitnessHeading">Фитнес</h2>
-        <a class="link" href="#">Посмотреть всё</a>
-      </div>
-
-      <!-- Видео: no-cookie + fallback-ссылка -->
-      <div class="video" style="margin-bottom:16px">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/UBMk30rjy0o?rel=0"
-          title="Фитнес: базовая тренировка для дома"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-        <div class="video__fallback">
-          <span>Если видео не загружается:</span>
-          <a href="https://youtu.be/UBMk30rjy0o" target="_blank" rel="noopener">Смотреть на YouTube</a>
-        </div>
-      </div>
-
-      <div class="grid grid--3" id="fitnessGrid" role="list"></div>
+  </div>
+</section>.                                                                                                                                                                                    
+<!-- ===== Фитнес ===== -->
+<section class="section" id="fitness">
+  <div class="container">
+    <h2>Фитнес</h2>
+    <div class="video" style="margin:16px 0;">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/UBMk30rjy0o?rel=0"
+        title="Фитнес: базовая тренировка дома"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        loading="lazy" allowfullscreen></iframe>
     </div>
-  </section>
-
-  <!-- Питание -->
-  <section class="section section--alt" id="nutrition" aria-labelledby="nutritionHeading">
-    <div class="container">
-      <div class="section__head">
-        <h2 id="nutritionHeading">Питание</h2>
-        <a class="link" href="#">Посмотреть всё</a>
-      </div>
-
-      <div class="video" style="margin-bottom:16px">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/9j8JYz0wS6E?rel=0"
-          title="Питание: как собрать тарелку"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-        <div class="video__fallback">
-          <span>Если видео не загружается:</span>
-          <a href="https://youtu.be/9j8JYz0wS6E" target="_blank" rel="noopener">Смотреть на YouTube</a>
-        </div>
-      </div>
-
-      <div class="grid grid--3" id="nutritionGrid" role="list"></div>
-    </div>
-  </section>
-
-  <!-- Уход -->
-  <section class="section" id="care" aria-labelledby="careHeading">
-    <div class="container">
-      <div class="section__head">
-        <h2 id="careHeading">Уход</h2>
-        <a class="link" href="#">Посмотреть всё</a>
-      </div>
-
-      <div class="video" style="margin-bottom:16px">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/8o1C-c1LZ-g?rel=0"
-          title="Уход за собой: базовая рутина"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-        <div class="video__fallback">
-          <span>Если видео не загружается:</span>
-          <a href="https://youtu.be/8o1C-c1LZ-g" target="_blank" rel="noopener">Смотреть на YouTube</a>
-        </div>
-      </div>
-
-      <div class="grid grid--3" id="careGrid" role="list"></div>
-    </div>
-  </section>
-
-  <!-- Популярное -->
-  <section class="section" id="popular" aria-labelledby="popularHeading">
-    <div class="container">
-      <div class="section__head">
-        <h2 id="popularHeading">Популярные материалы</h2>
-        <a class="link" href="#">Посмотреть всё</a>
-      </div>
-      <div class="grid grid--4" id="popularGrid" role="list"></div>
-    </div>
-  </section>
-
-  <!-- Подписка -->
-  <section class="section section--alt" id="subscribe" aria-labelledby="subHeading">
-    <div class="container">
-      <div class="subscribe">
-        <div class="subscribe__copy">
-          <h2 id="subHeading">Еженедельная рассылка</h2>
-          <p>Фитнес-планы, тарелки здоровья и бьюти-рутины. Отборные материалы раз в неделю, без спама.</p>
-        </div>
-        <form class="subscribe__form" onsubmit="event.preventDefault(); alert('Спасибо! Вы подписаны.');">
-          <label for="email" class="sr-only">Email</label>
-          <input id="email" type="email" placeholder="например, you@site.com" required aria-label="Email">
-          <button class="btn btn--primary" type="submit">Подписаться</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- О проекте -->
-  <section class="section" id="about" aria-labelledby="aboutHeading">
-    <div class="container">
-      <h2 id="aboutHeading">О проекте</h2>
-      <p>Сайт собран как лёгкий медиа-раздел. Фото подбираются по тематическим запросам (спорт, еда, уход), видео — с YouTube; их можно заменить на ваши ссылки/обложки.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p>© <span id="year"></span> Ваш стиль. С заботой о Вас! @Анастасия П.</p>
-      <nav class="footer__nav" aria-label="Нижняя навигация">
-        <a href="#fitness">Фитнес</a>
-        <a href="#nutrition">Питание</a>
-        <a href="#care">Уход</a>
-        <a href="#popular">Популярное</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-  // Текущий год
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Мобильное меню
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', String(!expanded));
-      mobileMenu.setAttribute('aria-expanded', String(!expanded));
-      mobileMenu.style.display = expanded ? 'none' : 'block';
-    });
-  }
-
-  // ДАННЫЕ КАРТОЧЕК (без дат; тематические фото + описания)
-  const fitness = [
-    {
-      tag:'Фитнес',
-      img:'https://source.unsplash.com/featured/800x450/?fitness,workout,gym',
-      title:'Домашняя тренировка: 25 минут',
-      desc:'Круговая тренировка на всё тело без оборудования. Разминка, 3 раунда, заминка — пошаговый план.',
-      minutes:25, rating:5.0, comments:3
-    },
-    {
-      tag:'Фитнес',
-      img:'https://source.unsplash.com/featured/800x450/?running,athlete,training',
-      title:'План на 4 недели для тонуса',
-      desc:'Простая программа на 3 тренировки в неделю: сила, кардио и гибкость. Подходит новичкам.',
-      minutes:18, rating:4.9, comments:1
-    },
-    {
-      tag:'Фитнес',
-      img:'https://source.unsplash.com/featured/800x450/?yoga,stretching,fitness',
-      title:'Разминка и заминка: как правильно',
-      desc:'Готовим суставы к нагрузке и ускоряем восстановление: 7 проверенных упражнений.',
-      minutes:12, rating:4.8, comments:0
-    }
-  ];
-
-  const nutrition = [
-    {
-      tag:'Питание',
-      img:'https://source.unsplash.com/featured/800x450/?healthy,food,vegetables',
-      title:'Баланс БЖУ на каждый день',
-      desc:'Простые правила тарелки: белок, клетчатка, полезные жиры и источники медленных углеводов.',
-      minutes:8, rating:5.0, comments:2
-    },
-    {
-      tag:'Питание',
-      img:'https://source.unsplash.com/featured/800x450/?salad,healthy-meal',
-      title:'Тарелка здоровья — 6 примеров',
-      desc:'Готовые идеи завтраков, обедов и ужинов для занятых — собираем из доступных продуктов.',
-      minutes:10, rating:4.9, comments:1
-    },
-    {
-      tag:'Питание',
-      img:'https://source.unsplash.com/featured/800x450/?dessert,berries,healthy',
-      title:'Сладкое без вреда: 5 десертов',
-      desc:'Йогуртовый парфе, банановые панкейки и ещё 3 простых рецепта на каждый день.',
-      minutes:11, rating:4.8, comments:5
-    }
-  ];
-
-  const care = [
-    {
-      tag:'Уход',
-      img:'https://source.unsplash.com/featured/800x450/?skincare,beauty,cosmetics',
-      title:'Утренняя рутина: 4 шага',
-      desc:'Очищение, тонер, увлажнение и SPF — коротко и по делу. Подходит для нормальной кожи.',
-      minutes:7, rating:4.9, comments:0
-    },
-    {
-      tag:'Уход',
-      img:'https://source.unsplash.com/featured/800x450/?sunscreen,spf,skincare',
-      title:'SPF ежедневно: мифы и факты',
-      desc:'Как выбрать фильтр и сколько наносить. Разбираем частые ошибки использования солнцезащиты.',
-      minutes:9, rating:5.0, comments:4
-    },
-    {
-      tag:'Уход',
-      img:'https://source.unsplash.com/featured/800x450/?moisturizer,skin,face-care',
-      title:'Увлажнение: что реально работает',
-      desc:'Гиалуроновая кислота, керамиды, ниацинамид — объясняем, кому что поможет.',
-      minutes:8, rating:4.8, comments:1
-    }
-  ];
-
-  const popular = [
-    {
-      tag:'Питание',
-      img:'https://source.unsplash.com/featured/800x450/?oatmeal,breakfast,healthy',
-      title:'Топ-10 простых полезных десертов',
-      desc:'Подборка быстрых сладостей без лишнего сахара: на основе фруктов и кисломолочных.',
-      minutes:11, rating:4.9, comments:22
-    },
-    {
-      tag:'Фитнес',
-      img:'https://source.unsplash.com/featured/800x450/?home,workout,bodyweight',
-      title:'10 упражнений дома без инвентаря',
-      desc:'Комплекс на всё тело: присед, планка, ягодичный мост, выпады и другое.',
-      minutes:15, rating:5.0, comments:12
-    },
-    {
-      tag:'Уход',
-      img:'https://source.unsplash.com/featured/800x450/?eye-cream,skincare',
-      title:'Кожа вокруг глаз: первый уход',
-      desc:'Как мягко ввести средства и не перегрузить область. Базовый минимум и частые ошибки.',
-      minutes:9, rating:4.8, comments:3
-    },
-    {
-      tag:'Фитнес',
-      img:'https://source.unsplash.com/featured/800x450/?gym,training,strength',
-      title:'Когда ждать первые результаты',
-      desc:'Что реально меняется в первые 4–6 недель и как не бросить на старте.',
-      minutes:7, rating:4.8, comments:19
-    }
-  ];
-
-  function star(){ return `<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>`}
-  function el(html){ const t=document.createElement('template'); t.innerHTML=html.trim(); return t.content.firstElementChild }
-
-  function card({ tag, img, title, desc, minutes, rating, comments }) {
-    return el(`
-      <article class="card" role="listitem">
-        <div class="card__media"><img src="${img}" alt="${title} — ${tag}"></div>
+    <div class="grid">
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?fitness,home" alt="Тренировка дома" loading="lazy">
         <div class="card__body">
-          <span class="chip">#${tag}</span>
-          <h3 class="card__title"><a href="#">${title}</a></h3>
-          <p class="card__desc">${desc}</p>
-          <div class="card__meta">
-            <span>${minutes} мин</span>
-            <span class="dot"></span>
-            <span title="Рейтинг">${star()} ${Number(rating).toFixed(1)}</span>
-            <span class="dot"></span>
-            <span title="Комментарии">💬 ${comments}</span>
-          </div>
+          <h3>Домашняя тренировка: 25 минут</h3>
+          <p>Круговая тренировка без инвентаря: разминка → 3 раунда → заминка.</p>
         </div>
       </article>
-    `);
-  }
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?yoga" alt="Йога дома" loading="lazy">
+        <div class="card__body">
+          <h3>Йога для начинающих</h3>
+          <p>Простые позы и дыхание для расслабления и гибкости.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?running" alt="Бег дома" loading="lazy">
+        <div class="card__body">
+          <h3>Бег на месте: 10 минут</h3>
+          <p>Кардио без тренажёров — легко и доступно каждому.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-  function mount(gridId, items){
-    const root = document.getElementById(gridId);
-    root.innerHTML = '';
-    items.forEach(i => root.appendChild(card(i)));
-  }
+<!-- ===== Питание ===== -->
+<section class="section" id="nutrition" style="background:var(--surface);">
+  <div class="container">
+    <h2>Питание</h2>
+    <div class="video" style="margin:16px 0;">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/9j8JYz0wS6E?rel=0"
+        title="Питание: как собрать тарелку здоровья"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        loading="lazy" allowfullscreen></iframe>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?healthy,food" alt="Здоровая еда" loading="lazy">
+        <div class="card__body">
+          <h3>Баланс БЖУ</h3>
+          <p>Белки, жиры и углеводы — простая логика «тарелки здоровья».</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?salad" alt="Салат" loading="lazy">
+        <div class="card__body">
+          <h3>Тарелка здоровья: примеры</h3>
+          <p>Идеи завтраков, обедов и ужинов из доступных продуктов.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?smoothie" alt="Смузи" loading="lazy">
+        <div class="card__body">
+          <h3>Смузи для энергии</h3>
+          <p>5 рецептов полезных напитков без лишнего сахара.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-  mount('fitnessGrid', fitness);
-  mount('nutritionGrid', nutrition);
-  mount('careGrid', care);
-  mount('popularGrid', popular);
+<!-- ===== Уход ===== -->
+<section class="section" id="care">
+  <div class="container">
+    <h2>Уход</h2>
+    <div class="video" style="margin:16px 0;">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/8o1C-c1LZ-g?rel=0"
+        title="Уход за собой дома"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        loading="lazy" allowfullscreen></iframe>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?skincare" alt="Уход за кожей" loading="lazy">
+        <div class="card__body">
+          <h3>Утренняя рутина</h3>
+          <p>Очищение, тонизация, увлажнение и SPF — без перегруза средствами.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?cosmetics" alt="Косметика" loading="lazy">
+        <div class="card__body">
+          <h3>Увлажнение: что реально работает</h3>
+          <p>Гиалуроновая кислота, керамиды и ниацинамид.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?spa" alt="SPA уход" loading="lazy">
+        <div class="card__body">
+          <h3>Домашний SPA</h3>
+          <p>Простые практики расслабления и ухода в домашних условиях.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section> 
+<!-- ===== Популярное ===== -->
+<section class="section" id="popular">
+  <div class="container">
+    <h2>Популярное</h2>
+    <div class="grid">
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?oatmeal" alt="Овсянка" loading="lazy">
+        <div class="card__body">
+          <h3>Топ-5 полезных завтраков</h3>
+          <p>Простые идеи для бодрого утра: овсянка, смузи, яйца, тосты и ещё.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?home,workout" alt="Упражнения дома" loading="lazy">
+        <div class="card__body">
+          <h3>10 упражнений без оборудования</h3>
+          <p>Комплекс на всё тело: присед, планка, мост, выпады и другое.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/600x338/?skincare,cream" alt="Крем для кожи" loading="lazy">
+        <div class="card__body">
+          <h3>Кожа вокруг глаз: первый уход</h3>
+          <p>Как мягко ввести средства и не перегрузить область.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-  // Плавный скролл по якорям
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      const id=a.getAttribute('href');
-      if(id.length>1){ e.preventDefault(); document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'}) }
-    });
+<!-- ===== Подписка ===== -->
+<section class="section" id="subscribe" style="background:var(--surface);">
+  <div class="container">
+    <h2>Подписка</h2>
+    <p>Еженедельная рассылка: фитнес-планы, рецепты и бьюти-рутины.</p>
+    <form onsubmit="event.preventDefault();alert('Спасибо! Вы подписаны.');">
+      <input type="email" placeholder="Ваш email" required style="padding:10px;border:1px solid var(--border);border-radius:var(--radius-sm);">
+      <button class="btn btn--primary" type="submit">Подписаться</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== О проекте ===== -->
+<section class="section" id="about">
+  <div class="container">
+    <h2>О проекте</h2>
+    <p>Этот сайт создан как гид по домашнему фитнесу, питанию и уходу за собой. 
+    Минимализм и акцент на пользу. Все материалы подбираются с заботой о вас. </p>
+  </div>
+</section>
+
+<!-- ===== Футер ===== -->
+<footer class="footer" style="border-top:1px solid var(--border);padding:20px 0;background:var(--surface);">
+  <div class="container">
+    <p>© <span id="year"></span> Ваш стиль. С заботой о Вас! @Анастасия П.</p>
+    <p style="font-size:12px;color:var(--muted);">Материалы носят справочный характер и не заменяют консультацию специалиста.</p>
+  </div>
+</footer>
+
+<script>
+// Автоматический год в футере
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Плавный скролл по якорям
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener("click", e=>{
+    const id=a.getAttribute("href");
+    if(id.length>1){
+      e.preventDefault();
+      document.querySelector(id)?.scrollIntoView({behavior:"smooth"});
+    }
   });
-  </script>
+});
+</script>
+
 </body>
-</html> 
+</html>
