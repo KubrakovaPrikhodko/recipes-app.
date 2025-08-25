@@ -1,160 +1,431 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fit-Beauty-Design — с заботой о Вас! @Анастасия П.</title>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
-<link rel="preconnect" href="https://images.unsplash.com">
-<style>
-  :root{
-    --bg:#faf2f2; --card:#fff; --ink:#2a2334; --muted:#6b6575;
-    --brand1:#ef5bd2; --brand2:#875bff; --chip:#f1e8ff;
-    --shadow:0 10px 24px rgba(30,10,60,.12); --radius:18px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; color:var(--ink);
-    background:linear-gradient(90deg, var(--bg) 0 12%, transparent 12% 88%, var(--bg) 88% 100%), #fff;
-  }
-  .wrap{max-width:1100px;margin:0 auto;padding:18px}
+<section class="grid" id="cards">
+  <!-- ===================== УПРАЖНЕНИЯ (10) ===================== -->
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Планка на локтях"
+           src="https://images.unsplash.com/photo-1583454110551-21f2fa2f9c30?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Кор</span><div class="hover-title">Планка на локтях</div>
+    </div>
+    <div class="content"><h3>Планка на локтях</h3><div class="muted">Базовая статика для кора и осанки.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps">
+        <li>Локти под плечами, корпус — прямая линия.</li>
+        <li>Живот подтянут, лопатки стабилизированы.</li>
+        <li>Держите 20–40 сек × 3–4 подхода.</li>
+      </ol>
+    </details>
+  </article>
 
-  /* HEADER */
-  header{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-  .badge{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;border-radius:999px;padding:6px 10px;font-weight:800;box-shadow:var(--shadow)}
-  .sparkle{
-    font-weight:900;
-    background:conic-gradient(from 0deg, #ff79d1, #8e6cff, #ff8fba, #ff79d1);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-    position:relative; text-shadow:0 0 0 rgba(0,0,0,0);
-  }
-  .sparkle::after{
-    content:"";
-    position:absolute; inset:-2px -4px; pointer-events:none;
-    background: radial-gradient(6px 6px at 10% 30%, #fff7, transparent 60%),
-                radial-gradient(5px 5px at 70% 60%, #fff6, transparent 60%),
-                radial-gradient(4px 4px at 40% 80%, #fff6, transparent 60%);
-    mix-blend-mode:screen; animation: twinkle 2.6s infinite linear;
-  }
-  @keyframes twinkle{
-    0%{opacity:.4; transform:translateX(0)}
-    50%{opacity:.9; transform:translateX(6px)}
-    100%{opacity:.4; transform:translateX(0)}
-  }
-  nav{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
-  nav button{
-    border:0;border-radius:999px;padding:10px 14px;background:#f7f3ff;color:#442a6b;font-weight:700;cursor:pointer;
-    box-shadow:inset 0 0 0 2px #e9dfff;transition:.2s;
-  }
-  nav button.active{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;box-shadow:var(--shadow)}
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Ягодичный мост"
+           src="https://images.unsplash.com/photo-1584467735871-2a98b2a6b5f4?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1594737625785-c6683fc6e2eb?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Ягодицы</span><div class="hover-title">Ягодичный мост</div>
+    </div>
+    <div class="content"><h3>Ягодичный мост</h3><div class="muted">Изоляция ягодичных, разгрузка поясницы.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Стопы под коленями.</li><li>Поднимайте таз, сжимая ягодицы.</li><li>Пауза 1–2 сек, 12–15×3.</li></ol>
+    </details>
+  </article>
 
-  .ribbon{margin:14px 0;border-radius:999px;padding:10px 16px;background:linear-gradient(90deg,var(--brand1),var(--brand2));color:#fff;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Отжимания от пола"
+           src="https://images.unsplash.com/photo-1517963628607-235ccdd5476d?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1550345332-09e3ac987658?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Грудь/трицепс</span><div class="hover-title">Отжимания от пола</div>
+    </div>
+    <div class="content"><h3>Отжимания от пола</h3><div class="muted">Сила верха тела и стабилизация кора.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Ладони под плечами.</li><li>Локти ~45° к корпусу.</li><li>8–12×3, корпус ровно.</li></ol>
+    </details>
+  </article>
 
-  /* GRID */
-  .layout{display:grid;grid-template-columns:1fr minmax(0,1100px) 1fr}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  @media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:640px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease}
-  .card:hover{transform:translateY(-2px)}
-  .thumb{aspect-ratio:16/9;position:relative;overflow:hidden}
-  .thumb img{
-    width:100%;height:100%;object-fit:cover;display:block;
-    filter:saturate(1.06) contrast(0.96) brightness(1.02);
-    transform:scale(1);transition:transform .5s ease;
-  }
-  .card:hover .thumb img{transform:scale(1.04)}
-  .thumb::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 2px #f1e8ff;background:linear-gradient(180deg,rgba(255,255,255,0) 60%,rgba(135,91,255,.08) 100%);pointer-events:none}
-  .pill{position:absolute;left:12px;top:12px;background:#ffffffd0;color:#552f88;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;backdrop-filter:saturate(1.2) blur(2px)}
-  .hover-title{position:absolute;left:12px;bottom:12px;background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;border-radius:12px;padding:8px 12px;font-weight:800;transform:translateY(8px);opacity:0;transition:.3s ease;box-shadow:0 6px 16px rgba(80,20,140,.25)}
-  .card:hover .hover-title{transform:translateY(0);opacity:1}
-  .content{padding:14px 16px 6px}
-  h3{margin:0 0 6px 0}
-  .muted{color:var(--muted);font-size:14px}
-  details{border-top:1px dashed #eee;padding:10px 16px 14px}
-  summary{cursor:pointer;font-weight:700}
-  .steps{margin:8px 0 0 0;padding-left:18px}.steps li{margin:6px 0}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}.chip{background:var(--chip);border-radius:999px;padding:4px 10px;font-weight:700;font-size:12px}
-  .hidden{display:none !important}
-  .empty{grid-column:1/-1;background:#fff0;border:2px dashed #e9dfff;border-radius:16px;padding:22px;text-align:center;color:#6b6575}
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Выпады назад"
+           src="https://images.unsplash.com/photo-1600965962102-7d4b1b4b0d59?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1546484959-f54d819ce8b8?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Ноги/ягодицы</span><div class="hover-title">Выпады назад</div>
+    </div>
+    <div class="content"><h3>Выпады назад</h3><div class="muted">Баланс и мощные ягодицы без нагрузки на колени.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Шаг назад, оба колена ~90°.</li><li>Колено передней ноги над стопой.</li><li>10–12 на ногу ×3.</li></ol>
+    </details>
+  </article>
 
-  /* РЕКЛАМНЫЕ ПОЛЯ */
-  .ad{
-    position:sticky; top:18px; align-self:start; height:calc(100vh - 36px);
-    margin:0 6px; border-radius:16px; padding:16px; font-weight:800; font-size:22px; line-height:1.2;
-    background:linear-gradient(180deg,#ffe0f5,#e6d6ff); color:#5a2c7a; box-shadow:var(--shadow);
-    display:flex; align-items:center; justify-content:center; text-align:center;
-  }
-</style>
-</head>
-<body>
-<div class="wrap">
-  <header>
-    <span class="badge">Fit-Beauty-Design</span>
-    <div class="sparkle"><strong>с заботой о Вас! @Анастасия П.</strong></div>
-    <nav aria-label="Разделы">
-      <button class="active" data-tab="ex">Упражнения</button>
-      <button data-tab="food">Питание</button>
-      <button data-tab="care">Уход</button>
-      <button data-tab="all">Все</button>
-    </nav>
-  </header>
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Колени к груди (планка)"
+           src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Пресс</span><div class="hover-title">Колени к груди</div>
+    </div>
+    <div class="content"><h3>Подтягивание коленей (планка)</h3><div class="muted">Динамика для кора и выносливости.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Планка на прямых руках.</li><li>Подтягивайте колено к груди, таз не «гуляет».</li><li>30–40 сек ×3.</li></ol>
+    </details>
+  </article>
 
-  <div class="ribbon">
-    <div id="ribbon-title">Упражнения • Домашние тренировки</div>
-    <div>Лёгкие анимации, единый фото-стиль</div>
-  </div>
-</div>
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Отведение ноги назад"
+           src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1599058917212-d750089bc07f?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Ягодицы</span><div class="hover-title">Отведение ноги назад</div>
+    </div>
+    <div class="content"><h3>Отведение ноги назад</h3><div class="muted">Изоляция большой ягодичной.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Опора на колени и ладони.</li><li>Пятка тянется назад и вверх.</li><li>12–15×3 на каждую.</li></ol>
+    </details>
+  </article>
 
-<div class="layout">
-  <aside class="ad">Здесь должна быть<br>Ваша реклама</aside>
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Скручивания"
+           src="https://images.unsplash.com/photo-1594737625785-c6683fc6e2eb?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1583454117684-5a2c8e5b0f29?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Пресс</span><div class="hover-title">Скручивания</div>
+    </div>
+    <div class="content"><h3>Скручивания</h3><div class="muted">Фронтальный пресс без нагрузки на шею.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Поясница прижата.</li><li>Рёбра тянутся к тазу.</li><li>15–20×3.</li></ol>
+    </details>
+  </article>
 
-  <main class="wrap">
-    <section class="grid" id="cards">
-      <!-- ТУТ 10 карточек УПРАЖНЕНИЙ -->
-      <!-- ТУТ 10 карточек ПИТАНИЯ -->
-      <!-- ТУТ 10 карточек УХОДА -->
-      <!-- (весь код с карточками, что я вам сгенерировал в файле) -->
-      <div id="empty" class="empty hidden">Раздел пока пуст — скоро добавим больше материалов 💜</div>
-    </section>
-  </main>
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Русские скручивания (твисты)"
+           src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Косые</span><div class="hover-title">Russian Twist</div>
+    </div>
+    <div class="content"><h3>Русские скручивания</h3><div class="muted">Косые мышцы живота и стабилизация.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Сядьте, корпус немного назад.</li><li>Поворачивайте корпус вправо/влево.</li><li>20–30 сек ×3.</li></ol>
+    </details>
+  </article>
 
-  <aside class="ad">Здесь должна быть<br>Ваша реклама</aside>
-</div>
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Приседания"
+           src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1517963628607-235ccdd5476d?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Ноги</span><div class="hover-title">Приседания</div>
+    </div>
+    <div class="content"><h3>Приседания</h3><div class="muted">База силы и формы ног.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Колени смотрят по носкам.</li><li>Спина нейтральная.</li><li>12–15×3.</li></ol>
+    </details>
+  </article>
 
-<script>
-  const tabs = document.querySelectorAll('nav button');
-  const cards = document.querySelectorAll('#cards .card');
-  const empty = document.getElementById('empty');
-  const ribbonTitle = document.getElementById('ribbon-title');
+  <article class="card" data-group="ex">
+    <div class="thumb">
+      <img alt="Супермен"
+           src="https://images.unsplash.com/photo-1599058917212-d750089bc07f?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1594737625785-c6683fc6e2eb?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Спина</span><div class="hover-title">Супермен</div>
+    </div>
+    <div class="content"><h3>Супермен</h3><div class="muted">Разгибатели спины и ягодицы.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Лягте на живот, руки вперёд.</li><li>Поднимите руки и ноги на выдохе.</li><li>10–12×3.</li></ol>
+    </details>
+  </article>
 
-  function applyFilter(group){
-    let visible = 0;
-    cards.forEach(c=>{
-      const ok = (group==='all') || (c.dataset.group===group);
-      c.classList.toggle('hidden', !ok);
-      if (ok) visible++;
-    });
-    empty.classList.toggle('hidden', visible!==0);
-    ribbonTitle.textContent =
-      group==='ex'   ? 'Упражнения • Домашние тренировки' :
-      group==='food' ? 'Питание • Полезные рецепты ПП' :
-      group==='care' ? 'Уход • Косметика и домашние способы' :
-                       'Все материалы';
-  }
+  <!-- ===================== ПИТАНИЕ (10) ===================== -->
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Овсянка с ягодами"
+           src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Овсянка с ягодами</div>
+    </div>
+    <div class="content"><h3>Овсянка с ягодами</h3><div class="muted">Клетчатка, медленные углеводы, антиоксиданты.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>Овсянка: жидкость 1:2.</li><li>Добавьте ягоды, орехи.</li><li>Подсластитель по желанию.</li></ol>
+    </details>
+  </article>
 
-  tabs.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      tabs.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      applyFilter(btn.dataset.tab);
-    });
-  });
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Белковый йогуртовый боул"
+           src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Белковый боул</div>
+    </div>
+    <div class="content"><h3>Белковый боул</h3><div class="muted">Греческий йогурт + гранола + фрукты.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>Йогурт 200 г.</li><li>Гранола, семена чиа.</li><li>Фрукты, мёд — по желанию.</li></ol>
+    </details>
+  </article>
 
-  applyFilter('ex'); // стартовая вкладка
-</script>
-</body>
-</html> 
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Салат с лососем"
+           src="https://images.unsplash.com/photo-1543352634-8730b1fd7e67?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Салат с лососем</div>
+    </div>
+    <div class="content"><h3>Салат с лососем</h3><div class="muted">Омега-3, белок, зелень.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>Зелень + огурец + помидор.</li><li>Запечённый лосось.</li><li>Оливковое масло + лимон.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Смузи после тренировки"
+           src="https://images.unsplash.com/photo-1576402187878-974f70c890a5?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Смузи после тренировки</div>
+    </div>
+    <div class="content"><h3>Смузи после тренировки</h3><div class="muted">Банан, молоко/вода, протеин.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>1 банан + 250 мл жидкости.</li><li>1 мерка протеина.</li><li>Взбить 20–30 сек.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Омлет с овощами"
+           src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Омлет с овощами</div>
+    </div>
+    <div class="content"><h3>Омлет с овощами</h3><div class="muted">Белок + клетчатка.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>Взбейте 2–3 яйца.</li><li>Добавьте овощи, травы.</li><li>Готовьте до схватывания.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Курица с киноа"
+           src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Курица + киноа</div>
+    </div>
+    <div class="content"><h3>Куриная грудка с киноа</h3><div class="muted">Сытно и ПП.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>Запечь грудку со специями.</li><li>Киноа 1:2 с водой.</li><li>Подавайте с овощами.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="ПП-пицца на лаваше"
+           src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">ПП-пицца</div>
+    </div>
+    <div class="content"><h3>ПП-пицца на лаваше</h3><div class="muted">Быстро и с контролем калорий.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>Лаваш + томатный соус.</li><li>Моцарелла light, курица, овощи.</li><li>200°C, 8–10 мин.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Тост с авокадо и яйцом"
+           src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1604908554007-09fd9a5fba07?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Тост с авокадо</div>
+    </div>
+    <div class="content"><h3>Тост с авокадо и яйцом</h3><div class="muted">Полезные жиры + белок.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>Поджарьте цельнозерновой тост.</li><li>Разомните авокадо, посолите.</li><li>Добавьте яйцо пашот.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Творожная запеканка ПП"
+           src="https://images.unsplash.com/photo-1604908177079-0e678bdcddc1?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1551024709-8f23befc6cf7?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Запеканка ПП</div>
+    </div>
+    <div class="content"><h3>Творожная запеканка</h3><div class="muted">Десерт без лишнего сахара.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>Творог 400 г + яйцо.</li><li>Овсяная мука, подсластитель.</li><li>180°C, 30–35 мин.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="food">
+    <div class="thumb">
+      <img alt="Чиа-пудинг"
+           src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Питание</span><div class="hover-title">Чиа-пудинг</div>
+    </div>
+    <div class="content"><h3>Чиа-пудинг</h3><div class="muted">Клетчатка и Омега-3.</div></div>
+    <details><summary>Рецепт</summary>
+      <ol class="steps"><li>200 мл молока/йогурта + 2 ст. л. чиа.</li><li>Оставить в холодильнике на ночь.</li><li>Добавить фрукты утром.</li></ol>
+    </details>
+  </article>
+
+  <!-- ===================== УХОД (10) ===================== -->
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Очищение после тренировки"
+           src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1556228453-efd0f3652346?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Уход</span><div class="hover-title">Очищение</div>
+    </div>
+    <div class="content"><h3>Очищение после тренировки</h3><div class="muted">Удаляйте пот и загрязнения без пересушивания.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Гель/пенка с pH-балансом.</li><li>Круговые движения 30–40 сек.</li><li>Промокнуть полотенцем.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Увлажняющий крем"
+           src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Уход</span><div class="hover-title">Увлажнение</div>
+    </div>
+    <div class="content"><h3>Увлажняющий крем</h3><div class="muted">Восстановление защитного барьера.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Наносить на влажную кожу.</li><li>Сыворотка → крем → SPF.</li><li>Шея/декольте — обязательно.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="SPF-защита"
+           src="https://images.unsplash.com/photo-1585238342028-4bbc0f7f59b6?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Уход</span><div class="hover-title">SPF ежедневно</div>
+    </div>
+    <div class="content"><h3>SPF ежедневно</h3><div class="muted">Профилактика фотостарения и пигментации.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Наносить за 15 мин до выхода.</li><li>Обновлять каждые 2–3 часа.</li><li>Не забывать уши и кисти.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Домашний скраб"
+           src="https://images.unsplash.com/photo-1587019158091-1c89c0a19b8b?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Тело</span><div class="hover-title">Скраб тела</div>
+    </div>
+    <div class="content"><h3>Домашний скраб</h3><div class="muted">Кофе + масло — бюджетный пилинг.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Смешать 2 ст. л. молотого кофе и 1 ст. л. масла.</li><li>Массировать 2–3 мин.</li><li>Смыть, нанести крем.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Маска для волос"
+           src="https://images.unsplash.com/photo-1505575972945-2803d7e76f89?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Волосы</span><div class="hover-title">Питательная маска</div>
+    </div>
+    <div class="content"><h3>Питательная маска для волос</h3><div class="muted">Блеск и мягкость.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Нанести на чистые влажные волосы.</li><li>Выдержать 5–10 мин.</li><li>Тщательно смыть.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Сухой массаж щёткой"
+           src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1573496529574-be85d6a60704?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Тело</span><div class="hover-title">Сухой массаж</div>
+    </div>
+    <div class="content"><h3>Сухой массаж щёткой</h3><div class="muted">Тонус кожи и лимфодренаж.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Короткие движения к сердцу.</li><li>2–3 мин перед душем.</li><li>Завершить увлажнением.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Бальзам для губ"
+           src="https://images.unsplash.com/photo-1604335399105-a0b5bb57d3e2?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1600180758890-6b94519a0dca?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Губы</span><div class="hover-title">Бальзам</div>
+    </div>
+    <div class="content"><h3>Гигиеническая помада</h3><div class="muted">Защита от сухости и ветра.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Наносить по мере необходимости.</li><li>На ночь — слой потолще.</li><li>Днём — вариант со SPF.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Крем для рук"
+           src="https://images.unsplash.com/photo-1604584860240-3be3cf0f8f2a?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1585238342028-4bbc0f7f59b6?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Руки</span><div class="hover-title">Крем для рук</div>
+    </div>
+    <div class="content"><h3>Питательный крем для рук</h3><div class="muted">Регенерация кутикулы и кожи.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>После каждого мытья рук.</li><li>Массируйте кутикулу.</li><li>На ночь — плотный слой.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Тканевая маска"
+           src="https://images.unsplash.com/photo-1612815154858-60aa4c888b9b?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Лицо</span><div class="hover-title">Тканевая маска</div>
+    </div>
+    <div class="content"><h3>Тканевая увлажняющая маска</h3><div class="muted">Быстрый «глоток воды» для кожи.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Наносить на очищенную кожу на 10–15 мин.</li><li>Остатки эссенции — на шею и декольте.</li><li>Закрыть кремом.</li></ol>
+    </details>
+  </article>
+
+  <article class="card" data-group="care">
+    <div class="thumb">
+      <img alt="Массаж гуаша"
+           src="https://images.unsplash.com/photo-1611930022073-b7a4ba5f5f01?q=80&w=1200&auto=format&fit=crop"
+           data-fallback="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop"
+           loading="lazy">
+      <span class="pill">Массаж</span><div class="hover-title">Гуаша</div>
+    </div>
+    <div class="content"><h3>Массаж гуаша</h3><div class="muted">Снятие отёков и расслабление.</div></div>
+    <details><summary>Инструкция</summary>
+      <ol class="steps"><li>Нанесите масло/сыворотку для скольжения.</li><li>Ведите пластину от центра к периферии.</li><li>3–5 минут, без боли.</li></ol>
+    </details>
+  </article>
+
+  <!-- Плейсхолдер пустого раздела -->
+  <div id="empty" class="empty hidden">Раздел пока пуст — скоро добавим больше материалов 💜</div>
+</section> 
