@@ -1,515 +1,379 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fit • Beauty • Design — общее</title>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-<meta http-equiv="Pragma" content="no-cache"/>
-<meta http-equiv="Expires" content="0"/>
-<style>
-  :root{
-    --bg:#fff7f3;           /* пудрово-розовый фон по бокам */
-    --card:#ffffff;
-    --ink:#222;
-    --sub:#666;
-    --grad1:#b832f8;        /* розово-фиолетовая гамма */
-    --grad2:#ff6aa2;
-    --pill:#ffe3f2;
-    --pill-ink:#8a1751;
-    --accent:#ff5da2;
-    --border:rgba(0,0,0,.08);
-  }
-  html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);}
-  .wrap{max-width:1200px;margin:0 auto;padding:16px;}
-  header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:8px}
-  .logo{font-weight:800;letter-spacing:.2px}
-  nav{display:flex;gap:8px;flex-wrap:wrap}
-  .tab{border:none;padding:10px 14px;border-radius:999px;background:#fff;color:#333;box-shadow:0 1px 0 var(--border) inset;cursor:pointer}
-  .tab.active{background:linear-gradient(90deg,var(--grad1),var(--grad2));color:#fff}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:16px 0}
-  @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:640px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-  .img{height:190px;background:linear-gradient(135deg,var(--grad1),var(--grad2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
-  .img>img{width:100%;height:100%;object-fit:cover;display:block}
-  .body{padding:14px 14px 2px}
-  h3{margin:0 0 6px;font-size:18px}
-  p{margin:0 0 8px;color:var(--sub);font-size:14px;line-height:1.45}
-  details{border-top:1px solid var(--border);padding:10px 14px}
-  summary{cursor:pointer;color:#333;font-weight:600}
-  .pill{display:inline-block;background:var(--pill);color:var(--pill-ink);font-size:12px;padding:4px 8px;border-radius:999px;margin:0 0 8px}
-  .video{aspect-ratio:16/9;background:#000}
-  .side{position:fixed;top:0;bottom:0;width:160px;background:var(--bg)}
-  .side.left{left:0}.side.right{right:0}
-  @media(max-width:1300px){.side{display:none}}
-  .news{position:sticky;top:16px;padding:16px}
-  .news h4{margin:0 0 8px}
-  .news a{display:block;font-size:13px;color:#0b57d0;text-decoration:none;margin:6px 0}
-  .ad{height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;color:#fff;
-      background:linear-gradient(90deg,var(--grad1),var(--grad2));font-weight:700;margin:10px 0}
-  .ad img{height:48px;width:100%;object-fit:cover;border-radius:999px;display:none}
-  .ad.has-img span{display:none}.ad.has-img img{display:block}
-  footer{color:#777;font-size:12px;text-align:center;margin:24px 0}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fit-Beauty-Design (с заботой о Вас! @Анастасия П.)</title>
+
+  <!-- кэш отключён, чтобы вы сразу видели замену изображений -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <!-- быстрые подключения к источникам картинок и превью видео -->
+  <link rel="preconnect" href="https://source.unsplash.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://i.ytimg.com">
+
+  <style>
+    :root{
+      --bg:#faf2f2;                 /* пудрово-розовый фон по бокам */
+      --card:#ffffff;
+      --ink:#2a2334;
+      --muted:#6b6575;
+      --brand1:#ef5bd2;             /* розово-фиолетовая палитра */
+      --brand2:#875bff;
+      --brand3:#ff6a95;
+      --chip:#f1e8ff;
+      --ok:#0aa15f;
+      --shadow:0 10px 24px rgba(30,10,60,.12);
+      --radius:18px;
+      --imgRadius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        linear-gradient(90deg, var(--bg) 0 12%, transparent 12% 88%, var(--bg) 88% 100%),
+        #fff;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+    header{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .badge{
+      background:linear-gradient(135deg,var(--brand1),var(--brand2));
+      color:#fff;border-radius:999px;padding:6px 10px;font-weight:800;
+      box-shadow:var(--shadow)
+    }
+    nav{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
+    nav button{
+      border:0;border-radius:999px;padding:10px 14px;background:#f7f3ff;color:#442a6b;
+      font-weight:700;cursor:pointer;box-shadow:inset 0 0 0 2px #e9dfff
+    }
+    nav button.active{
+      background:linear-gradient(135deg,var(--brand1),var(--brand2));
+      color:#fff;box-shadow:var(--shadow)
+    }
+    .ribbon{
+      margin:14px 0;border-radius:999px;padding:10px 16px;
+      background:linear-gradient(90deg,var(--brand1),var(--brand2));
+      color:#fff;font-weight:800;display:flex;justify-content:space-between;align-items:center
+    }
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+    .card{
+      background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+      overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease;
+    }
+    .card:hover{transform:translateY(-2px)}
+
+    .thumb{
+      aspect-ratio:16/9;position:relative;overflow:hidden;border-bottom:1px solid #f1e8ff;
+    }
+    .thumb img{
+      width:100%;height:100%;object-fit:cover;display:block;border-radius:0;
+      /* мягкая цветокоррекция для единого стиля */
+      filter:saturate(1.06) contrast(0.96) brightness(1.02);
+      transform:scale(1);transition:transform .6s ease;
+    }
+    .card:hover .thumb img{transform:scale(1.04)}
+    /* единая «рамка» и мягкий градиент поверх фото */
+    .thumb::after{
+      content:"";position:absolute;inset:0;border-radius:0;
+      box-shadow:inset 0 0 0 2px #f1e8ff;
+      background:linear-gradient(180deg, rgba(255,255,255,.00) 60%, rgba(135,91,255,.08) 100%);
+      pointer-events:none;
+    }
+
+    .pill{
+      position:absolute;left:12px;top:12px;background:#ffffffd0;color:#552f88;
+      padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;
+      backdrop-filter:saturate(1.2) blur(2px)
+    }
+
+    /* hover-подпись — лёгкая анимация появления */
+    .hover-title{
+      position:absolute;left:12px;bottom:12px;
+      background:linear-gradient(135deg,var(--brand1),var(--brand2));
+      color:#fff;border-radius:12px;padding:8px 12px;font-weight:800;
+      transform:translateY(8px);opacity:0;transition:.3s ease;
+      box-shadow:0 6px 16px rgba(80,20,140,.25);
+    }
+    .card:hover .hover-title{transform:translateY(0);opacity:1}
+
+    .content{padding:14px 16px 6px}
+    h3{margin:0 0 6px 0}
+    .muted{color:var(--muted);font-size:14px}
+    details{border-top:1px dashed #eee;padding:10px 16px 14px}
+    summary{cursor:pointer;font-weight:700}
+    .steps{margin:8px 0 0 0;padding-left:18px}
+    .steps li{margin:6px 0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+    .chip{background:var(--chip);border-radius:999px;padding:4px 10px;font-weight:700;font-size:12px}
+    .video{padding:0 16px 16px}
+    .video iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;box-shadow:var(--shadow)}
+  </style>
 </head>
 <body>
-<div class="side left"><div class="news">
-  <h4>Новости ЗОЖ</h4>
-  <a href="https://www.menshealth.com/fitness/" target="_blank" rel="noopener">Свежие тренды тренировок</a>
-  <a href="https://www.healthline.com/nutrition" target="_blank" rel="noopener">Питание: что нового</a>
-  <a href="https://www.who.int/news-room" target="_blank" rel="noopener">Рекомендации ВОЗ</a>
-</div></div>
-<div class="side right"><div class="news">
-  <h4>Новости ЗОЖ</h4>
-  <a href="https://www.shape.com/fitness" target="_blank" rel="noopener">Кардио и силовые</a>
-  <a href="https://www.self.com/fitness" target="_blank" rel="noopener">Домашние тренировки</a>
-  <a href="https://www.vogue.ru/beauty" target="_blank" rel="noopener">Бьюти-новости</a>
-</div></div>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <span class="badge">Fit-Beauty-Design</span>
+        <div>с заботой о Вас! @Анастасия П.</div>
+      </div>
+      <nav>
+        <button class="active">Упражнения</button>
+        <button>Питание</button>
+        <button>Уход</button>
+        <button>UI/UX</button>
+      </nav>
+    </header>
 
-<div class="wrap">
-  <header>
-    <div class="logo">Fit•Beauty•Design</div>
-    <nav id="tabs">
-      <button class="tab active" data-tab="all">Общее</button>
-      <button class="tab" data-tab="fitness">Фитнес</button>
-      <button class="tab" data-tab="beauty">Красота</button>
-      <button class="tab" data-tab="design">Дизайн</button>
-      <button class="tab" data-tab="feedback">Обратная связь</button>
-    </nav>
-  </header>
+    <div class="ribbon">
+      <div>Общее • Домашние тренировки</div>
+      <div>Лёгкие анимации, единый фото-стиль</div>
+    </div>
 
-  <div class="ad" id="adTop"><span>ЗДЕСЬ ДОЛЖНА БЫТЬ ВАША РЕКЛАМА — баннер 1100×120</span><img id="adImgTop" alt=""></div>
-  <div class="ad" id="adSub"><span>ЗДЕСЬ ДОЛЖНА БЫТЬ ВАША РЕКЛАМА — баннер 1100×90</span><img id="adImgSub" alt=""></div>
-
-  <section id="content" class="grid" aria-live="polite"></section>
-  <footer>© Fit•Beauty•Design. Контент демонстрационный.</footer>
-</div>
-
-<script>
-/* ---------- ДАННЫЕ (фото = безопасные https Unsplash) ---------- */
-const YT = (id)=>`<iframe class="video" loading="lazy" src="https://www.youtube.com/embed/${id}" 
-title="Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-
-const fitness = [
-  {
-    title:"Планка на локтях",
-    img:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop",
-    tag:"Кор",
-    steps:[
-      "Локти под плечами, предплечья параллельно.",
-      "Корпус — прямая линия от пяток до головы.",
-      "Втянуть живот, нейтральная поясница.",
-      "Дыхание ровное: 3×30–45 сек, отдых 30 сек."
-    ],
-    video:YT("eZ4H0v9r7ds")
-  },
-  {
-    title:"Ягодичный мост",
-    img:"https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-    tag:"Ягодицы",
-    steps:[
-      "Лечь на спину, стопы на ширине таза, колени согнуты.",
-      "Оттолкнуться пятками, поднять таз до линии бёдер и корпуса.",
-      "Сжать ягодицы 1–2 сек, медленно опустить.",
-      "3×12–15 повторений."
-    ],
-    video:YT("9qo48CYN06w")
-  },
-  {
-    title:"Отжимания от пола",
-    img:"https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
-    tag:"Грудь/трицепс",
-    steps:[
-      "Ладони под плечами, корпус — прямая линия.",
-      "Опускаться до 90° в локтях, локти ~45°.",
-      "Жесткий корпус, взгляд вниз.",
-      "3×8–12 повторений."
-    ],
-    video:YT("IODxDxX7oi4")
-  },
-  {
-    title:"Выпады назад",
-    img:"https://images.unsplash.com/photo-1594737625785-c6683fc8e9b0?q=80&w=1200&auto=format&fit=crop",
-    tag:"Ноги/ягодицы",
-    steps:[
-      "Шаг назад, колено передней ноги над стопой.",
-      "Опустить таз до ~90°, корпус чуть вперёд.",
-      "Оттолкнуться передней ногой, вернуться.",
-      "3×10 повторений на каждую."
-    ],
-    video:YT("QOVaHwm-Q6U")
-  },
-  {
-    title:"Подтягивание коленей к груди (горизонтальная планка)",
-    img:"https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=1200&auto=format&fit=crop",
-    tag:"Пресс",
-    steps:[
-      "Упор лёжа, ладони под плечами.",
-      "Поочерёдно тянуть колено к груди, таз стабилен.",
-      "Не проваливай поясницу.",
-      "3×20 шагов (10+10)."
-    ],
-    video:YT("UoC_O3HzsH0")
-  },
-  {
-    title:"Отведение ноги назад в упоре",
-    img:"https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=1200&auto=format&fit=crop",
-    tag:"Ягодицы",
-    steps:[
-      "Колено под тазом, ладони под плечами.",
-      "Отвести пятку назад и вверх, спина нейтральна.",
-      "Плавно опустить, не прогибаясь.",
-      "3×12–15 на каждую."
-    ],
-    video:YT("HwoR9d3F9i0")
-  },
-  {
-    title:"Скручивание классическое",
-    img:"https://images.unsplash.com/photo-1550345332-09e3ac987658?q=80&w=1200&auto=format&fit=crop",
-    tag:"Пресс",
-    steps:[
-      "Лечь, стопы зафиксированы/на полу.",
-      "Подбородок от груди, поясница прижата.",
-      "Подъём лопаток — выдох, медленный спуск — вдох.",
-      "3×15–20."
-    ],
-    video:YT("Xyd_fa5zoEU")
-  },
-  {
-    title:"Разгибания рук в наклоне (трицепс)",
-    img:"https://images.unsplash.com/photo-1594737625785-c6683fc8e9b0?q=80&w=1200&auto=format&fit=crop",
-    tag:"Руки",
-    steps:[
-      "Наклон 30–45°, локти прижаты.",
-      "Разогнуть предплечья назад до прямой линии.",
-      "Контролировать обратный ход.",
-      "3×12–15 (с резинкой/гантелью)."
-    ],
-    video:YT("6SS6K3lAwZ8")
-  },
-  {
-    title:"Супермен",
-    img:"https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop",
-    tag:"Спина/ягодицы",
-    steps:[
-      "Лечь на живот, руки вперёд.",
-      "Одновременно поднять руки и ноги на 3–5 см.",
-      "Задержка 1 сек, опустить.",
-      "3×12–15."
-    ],
-    video:YT("cc6UVRS7PW4")
-  },
-  {
-    title:"Приседания с собственным весом",
-    img:"https://images.unsplash.com/photo-1518310952931-b1de897abd1e?q=80&w=1200&auto=format&fit=crop",
-    tag:"Ноги/кор",
-    steps:[
-      "Ноги шире плеч, носки слегка наружу.",
-      "Таз назад и вниз, колени над стопами.",
-      "Грудь раскрыта, спина нейтральна.",
-      "3×12–20."
-    ],
-    video:YT("aclHkVaku9U")
-  }
-];
-
-const beauty = [
-  {
-    title:"Очищение (гель/пенка)",
-    img:"https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop",
-    tag:"Шаг 1",
-    steps:[
-      "Смочить лицо тёплой водой.",
-      "Вспенить средство в ладонях.",
-      "Массировать 30–40 сек, смыть.",
-      "Подходит для ежедневного ухода утром/вечером."
-    ],
-    video:YT("2s8GQKcH7Ck")
-  },
-  {
-    title:"Гидролат/тонер",
-    img:"https://images.unsplash.com/photo-1535469420023-0f1380b0a3b0?q=80&w=1200&auto=format&fit=crop",
-    tag:"Шаг 2",
-    steps:[
-      "Нанести тонер на ватный диск/ладони.",
-      "Промакнуть лицо для восстановления pH.",
-      "Не смывать."
-    ],
-    video:YT("a1GkLM7Q8n8")
-  },
-  {
-    title:"Эссенция/сыворотка с ниацинамидом",
-    img:"https://images.unsplash.com/photo-1616394584738-fc6e61210b18?q=80&w=1200&auto=format&fit=crop",
-    tag:"Шаг 3",
-    steps:[
-      "2–3 капли на влажную кожу.",
-      "Распределить по лицу и шее.",
-      "Подождать впитывания 1–2 мин."
-    ],
-    video:YT("0cR1vZ1UyG8")
-  },
-  {
-    title:"Крем для глаз (масло/гель)",
-    img:"https://images.unsplash.com/photo-1616394584738-fc6e61210b18?q=80&w=1200&auto=format&fit=crop",
-    tag:"Шаг 4",
-    steps:[
-      "Горошина средства на безымянный палец.",
-      "Делать лёгкие похлопывания по орбитальной кости.",
-      "Не тянуть кожу."
-    ],
-    video:YT("4b1m3J-6pN4")
-  },
-  {
-    title:"Дневной увлажняющий крем",
-    img:"https://images.unsplash.com/photo-1585238342020-96629b5b13b2?q=80&w=1200&auto=format&fit=crop",
-    tag:"Шаг 5",
-    steps:[
-      "Горох крема на лицо/шею.",
-      "Массаж по линиям Лангера 30 сек.",
-      "Для сухой кожи — повторить точечно."
-    ],
-    video:YT("r2lG3sV6fPE")
-  },
-  {
-    title:"SPF 50 (ежедневно)",
-    img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7bb?q=80&w=1200&auto=format&fit=crop",
-    tag:"Обязательный",
-    steps:[
-      "2 пальца крема SPF на лицо и уши.",
-      "Обновлять каждые 2–3 часа при солнце.",
-      "Совместим с макияжем."
-    ],
-    video:YT("VwVQWqzR8PQ")
-  },
-  {
-    title:"Скраб тела (1–2 раза/нед)",
-    img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop",
-    tag:"Тело",
-    steps:[
-      "На влажную кожу круговые движения 1–2 мин.",
-      "Смыть, промокнуть полотенцем.",
-      "Нанести лосьон."
-    ],
-    video:YT("2mO1qK2nGdc")
-  },
-  {
-    title:"Домашняя маска с тканевой основой",
-    img:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
-    tag:"Экспресс",
-    steps:[
-      "Наложить на 10–15 минут.",
-      "Снять, остатки вбить ладонями.",
-      "Крем по типу кожи."
-    ],
-    video:YT("dE7h8W7XxNw")
-  },
-  {
-    title:"Массаж гуаша",
-    img:"https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop",
-    tag:"Лифтинг",
-    steps:[
-      "Масло/крем как скольжение.",
-      "Скребок под углом ~15° от центра к периферии.",
-      "5–7 минут, не растягивая кожу."
-    ],
-    video:YT("4JzAqd9Kq9o")
-  },
-  {
-    title:"Ночной ретинол (1–3 раза/нед)",
-    img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop",
-    tag:"Анти-эйдж",
-    steps:[
-      "Горошина средства на сухую кожу.",
-      "Избегать уголков глаз и носа.",
-      "Утром обязательно SPF."
-    ],
-    video:YT("1Qx2oYF9S8I")
-  }
-];
-
-const design = [
-  {
-    title:"Лайм-вош (limewash)",
-    img:"https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?q=80&w=1200&auto=format&fit=crop",
-    tag:"Матовая глубина",
-    steps:[
-      "Минеральная краска с меловым эффектом.",
-      "Наносится хаотичными мазками кистью.",
-      "Дышащие стены, скрывает неровности.",
-      "Время работ: 1 день."
-    ],
-    video:YT("3b8XlHAbYhY")
-  },
-  {
-    title:"Микроцемент",
-    img:"https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop",
-    tag:"Монолитный вид",
-    steps:[
-      "Толщина слоя 2–3 мм, без швов.",
-      "Высокая износостойкость для кухни/ванной.",
-      "Нужен грамотный праймер и финиш-лак.",
-      "Срок: 2–3 дня."
-    ],
-    video:YT("mUBK7cVwY3o")
-  },
-  {
-    title:"Венецианская штукатурка",
-    img:"https://images.unsplash.com/photo-1549187774-b4e9b0445b41?q=80&w=1200&auto=format&fit=crop",
-    tag:"Премиум-глянец",
-    steps:[
-      "Несколько тонких слоёв и полировка воском.",
-      "Глубокие переливы, эффект мрамора.",
-      "Требует мастера, но моется легко."
-    ],
-    video:YT("sD9i2tJb0jU")
-  },
-  {
-    title:"3D-панели из МДФ",
-    img:"https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop",
-    tag:"Тёплая фактура",
-    steps:[
-      "Крепление на обрешётку/клей.",
-      "Покраска в любой оттенок RAL.",
-      "Монтаж 1 день, улучшает акустику."
-    ],
-    video:YT("9b2mLFqjWn0")
-  },
-  {
-    title:"Акустические панели",
-    img:"https://images.unsplash.com/photo-1616593967501-8d4d2d4c1ee8?q=80&w=1200&auto=format&fit=crop",
-    tag:"Тишина и стиль",
-    steps:[
-      "Ламели на фетре гасят эхо.",
-      "Крепление на рейки/клей.",
-      "Подходят для ТВ-зон, кабинетов."
-    ],
-    video:YT("yRk8lPpY5gU")
-  },
-  {
-    title:"Эко-обои на флизелине",
-    img:"https://images.unsplash.com/photo-1616593967501-8d4d2d4c1ee8?q=80&w=1200&auto=format&fit=crop",
-    tag:"Быстрый ремонт",
-    steps:[
-      "Клей наносится на стену, полосы стыкуются внахлёст/встык.",
-      "Плотные, скрывают мелкие дефекты.",
-      "Монтаж комнаты: 1 день."
-    ],
-    video:YT("jQmY3j5R3fQ")
-  },
-  {
-    title:"Декоративная шпаклёвка (травертин)",
-    img:"https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop",
-    tag:"Рельеф",
-    steps:[
-      "Нанесение шпателем + выборка «пор».",
-      "Грунт, 2 слоя, воск/лак.",
-      "Прочная и выразительная поверхность."
-    ],
-    video:YT("b8yqf6R9xkM")
-  },
-  {
-    title:"Фактурная краска с песком",
-    img:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop",
-    tag:"Тактильность",
-    steps:[
-      "Валик + кельма для эффекта песка.",
-      "Не требует идеальной шпаклёвки.",
-      "Быстро и бюджетно."
-    ],
-    video:YT("Qe6xTzYd8Cw")
-  },
-  {
-    title:"Панели ПВХ под камень",
-    img:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop",
-    tag:"Моющиеся",
-    steps:[
-      "Клей/саморезы, лёгкий вес.",
-      "Подходит для кухонных фартуков.",
-      "Монтаж за вечер."
-    ],
-    video:YT("kT5w9S0bVh8")
-  },
-  {
-    title:"Магнитно-грифельная стена",
-    img:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop",
-    tag:"Функционально",
-    steps:[
-      "2 слоя магнитной, 1 грифельной.",
-      "Сушить по инструкции, грунт обязателен.",
-      "Идеально для кухни/детской/офиса."
-    ],
-    video:YT("b5eA9j9G3eE")
-  }
-];
-
-const ALL = [...fitness.map(x=>({...x, type:'fitness'})),
-             ...beauty.map(x=>({...x, type:'beauty'})),
-             ...design.map(x=>({...x, type:'design'}))];
-
-/* ---------- РЕНДЕР ---------- */
-const el = (tag, cls, html)=>{const n=document.createElement(tag); if(cls) n.className=cls; if(html!==undefined) n.innerHTML=html; return n;}
-const content = document.getElementById('content');
-
-function render(list){
-  content.innerHTML='';
-  list.forEach(item=>{
-    const card = el('article','card');
-    const img = el('div','img');
-    img.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy" onerror="this.parentNode.textContent='Фото недоступно'">`;
-    const body = el('div','body');
-    body.append(
-      el('span','pill', item.tag||''),
-      el('h3','', item.title),
-      el('p','', (item.desc||'Подробная инструкция ниже.'))
-    );
-    const det = el('details','', `<summary>Инструкции</summary>
-      <ol style="margin:6px 0 0 18px;padding:0">${item.steps.map(s=>`<li style="margin:6px 0">${s}</li>`).join('')}</ol>
-      <div style="margin-top:10px">${item.video||''}</div>
-    `);
-    card.append(img, body, det);
-    content.append(card);
-  });
-}
-
-function setActive(tab){
-  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
-}
-
-const tabs = document.getElementById('tabs');
-tabs.addEventListener('click', e=>{
-  const b=e.target.closest('.tab'); if(!b) return;
-  const t=b.dataset.tab; setActive(t);
-  switch(t){
-    case 'all': render(ALL); break;
-    case 'fitness': render(ALL.filter(x=>x.type==='fitness')); break;
-    case 'beauty': render(ALL.filter(x=>x.type==='beauty')); break;
-    case 'design': render(ALL.filter(x=>x.type==='design')); break;
-    case 'feedback':
-      content.innerHTML = `
-      <div class="card" style="grid-column:1/-1">
-        <div class="img">Обратная связь</div>
-        <div class="body">
-          <h3>Напишите нам</h3>
-          <p>Почта: <a href="mailto:hello@your-site.example">hello@your-site.example</a></p>
-          <p>Или заполните форму: <a href="https://forms.gle/" target="_blank" rel="noopener">Google Forms</a></p>
+    <section class="grid" aria-label="Карточки упражнений">
+      <!-- 1. ПЛАНКА НА ЛОКТЯХ -->
+      <article class="card">
+        <div class="thumb">
+          <!-- при необходимости замените URL на свой файл/хостинг -->
+          <img
+            src="https://source.unsplash.com/800x450/?female,fitness,plank,mat"
+            srcset="
+              https://source.unsplash.com/800x450/?female,fitness,plank,mat 800w,
+              https://source.unsplash.com/1200x675/?female,fitness,plank,mat 1200w"
+            sizes="(max-width:640px) 100vw, (max-width:960px) 50vw, 33vw"
+            alt="Девушка выполняет планку на локтях"
+            loading="lazy" decoding="async">
+          <span class="pill">Кор</span>
+          <div class="hover-title">Планка на локтях</div>
         </div>
-      </div>`;
-    break;
-  }
-});
+        <div class="content">
+          <h3>Планка на локтях</h3>
+          <div class="muted">Подробная инструкция ниже.</div>
+          <div class="chips"><span class="chip">статическое</span><span class="chip">спина</span></div>
+        </div>
+        <details>
+          <summary>Инструкции</summary>
+          <ol class="steps">
+            <li>Локти под плечами, корпус — как прямая линия.</li>
+            <li>Живот подтянут, не прогибаться в пояснице.</li>
+            <li>Дышите ровно 20–40 секунд.</li>
+          </ol>
+        </details>
+      </article>
 
-/* стартовая загрузка */
-render(ALL);
+      <!-- 2. ЯГОДИЧНЫЙ МОСТ -->
+      <article class="card">
+        <div class="thumb">
+          <img
+            src="https://source.unsplash.com/800x450/?female,glute,bridge,workout"
+            srcset="
+              https://source.unsplash.com/800x450/?female,glute,bridge,workout 800w,
+              https://source.unsplash.com/1200x675/?female,glute,bridge,workout 1200w"
+            sizes="(max-width:640px) 100vw, (max-width:960px) 50vw, 33vw"
+            alt="Ягодичный мост"
+            loading="lazy" decoding="async">
+          <span class="pill">Ягодицы</span>
+          <div class="hover-title">Ягодичный мост</div>
+        </div>
+        <div class="content">
+          <h3>Ягодичный мост</h3>
+          <div class="muted">Подробная инструкция ниже.</div>
+          <div class="chips"><span class="chip">ягодицы</span><span class="chip">бёдра</span></div>
+        </div>
+        <details>
+          <summary>Инструкции</summary>
+          <ol class="steps">
+            <li>Стопы на ширине таза, пятки под коленями.</li>
+            <li>Поднимайте таз, сжимая ягодицы, без прогиба в пояснице.</li>
+            <li>Задержитесь на 1–2 сек вверху, опуститесь.</li>
+          </ol>
+        </details>
+      </article>
 
-/* баннеры: если положишь ad.jpg в корень, она подхватится */
-['Top','Sub'].forEach(id=>{
-  fetch(`./ad.jpg`, {cache:'no-store'}).then(r=>{
-    if(r.ok){ document.getElementById('ad'+id).classList.add('has-img');
-      document.getElementById('adImg'+id).src='./ad.jpg?'+Date.now();
-    }
-  }).catch(()=>{});
-});
-</script>
+      <!-- 3. ОТЖИМАНИЯ ОТ ПОЛА -->
+      <article class="card">
+        <div class="thumb">
+          <img
+            src="https://source.unsplash.com/800x450/?female,push-up,workout,gym"
+            srcset="
+              https://source.unsplash.com/800x450/?female,push-up,workout,gym 800w,
+              https://source.unsplash.com/1200x675/?female,push-up,workout,gym 1200w"
+            sizes="(max-width:640px) 100vw, (max-width:960px) 50vw, 33vw"
+            alt="Отжимания от пола"
+            loading="lazy" decoding="async">
+          <span class="pill">Грудь/трицепс</span>
+          <div class="hover-title">Отжимания от пола</div>
+        </div>
+        <div class="content">
+          <h3>Отжимания от пола</h3>
+          <div class="muted">Подробная инструкция ниже.</div>
+          <div class="chips"><span class="chip">грудь</span><span class="chip">трицепс</span></div>
+        </div>
+        <details>
+          <summary>Инструкции</summary>
+          <ol class="steps">
+            <li>Ладони под плечами, корпус ровно.</li>
+            <li>Локти ~45° к корпусу, касание грудью линии пола.</li>
+            <li>Выдох вверх, живот подтянут.</li>
+          </ol>
+        </details>
+      </article>
+
+      <!-- 4. ВЫПАДЫ НАЗАД -->
+      <article class="card">
+        <div class="thumb">
+          <img
+            src="https://source.unsplash.com/800x450/?female,reverse,lunge,fitness"
+            srcset="
+              https://source.unsplash.com/800x450/?female,reverse,lunge,fitness 800w,
+              https://source.unsplash.com/1200x675/?female,reverse,lunge,fitness 1200w"
+            sizes="(max-width:640px) 100vw, (max-width:960px) 50vw, 33vw"
+            alt="Девушка выполняет выпады назад"
+            loading="lazy" decoding="async">
+          <span class="pill">Ноги/ягодицы</span>
+          <div class="hover-title">Выпады назад</div>
+        </div>
+        <div class="content">
+          <h3>Выпады назад</h3>
+          <div class="muted">Подробная инструкция ниже.</div>
+          <div class="chips"><span class="chip">квадрицепс</span><span class="chip">ягодицы</span></div>
+        </div>
+        <details>
+          <summary>Инструкции</summary>
+          <ol class="steps">
+            <li>Шаг назад, опуститесь на два колена под ~90°.</li>
+            <li>Корпус ровный, колено передней ноги над стопой.</li>
+            <li>Подъём за счёт пятки передней ноги.</li>
+          </ol>
+        </details>
+      </article>
+
+      <!-- 5. ПОДТЯГИВАНИЕ КОЛЕНЕЙ К ГРУДИ (ГОРИЗОНТАЛЬНАЯ ПЛАНКА) -->
+      <article class="card">
+        <div class="thumb">
+          <img
+            src="https://source.unsplash.com/800x450/?female,mountain,climbers,plank"
+            srcset="
+              https://source.unsplash.com/800x450/?female,mountain,climbers,plank 800w,
+              https://source.unsplash.com/1200x675/?female,mountain,climbers,plank 1200w"
+            sizes="(max-width:640px) 100vw, (max-width:960px) 50vw, 33vw"
+            alt="Подтягивание коленей к груди в планке"
+            loading="lazy" decoding="async">
+          <span class="pill">Пресс</span>
+          <div class="hover-title">Колени к груди (планка)</div>
+        </div>
+        <div class="content">
+          <h3>Подтягивание коленей к груди (планка)</h3>
+          <div class="muted">Подробная инструкция ниже.</div>
+          <div class="chips"><span class="chip">кор</span><span class="chip">кардио-акцент</span></div>
+        </div>
+        <details>
+          <summary>Инструкции</summary>
+          <ol class="steps">
+            <li>Планка на прямых руках.</li>
+            <li>Поочерёдно подтягивайте колено к груди, корпус стабилен.</li>
+            <li>Работайте в ровном темпе 20–40 сек.</li>
+          </ol>
+        </details>
+      </article>
+
+      <!-- 6. ОТВЕДЕНИЕ НОГИ НАЗАД -->
+      <article class="card">
+        <div class="thumb">
+          <img
+            src="https://source.unsplash.com/800x450/?female,glute,kickback,mat"
+            srcset="
+              https://source.unsplash.com/800x450/?female,glute,kickback,mat 800w,
+              https://source.unsplash.com/1200x675/?female,glute,kickback,mat 1200w"
+            sizes="(max-width:640px) 100vw, (max-width:960px) 50vw, 33vw"
+            alt="Отведение ноги назад"
+            loading="lazy" decoding="async">
+          <span class="pill">Ягодицы</span>
+          <div class="hover-title">Отведение ноги назад</div>
+        </div>
+        <div class="content">
+          <h3>Отведение ноги назад</h3>
+          <div class="muted">Подробная инструкция ниже.</div>
+          <div class="chips"><span class="chip">ягодицы</span><span class="chip">задняя поверхность</span></div>
+        </div>
+        <details>
+          <summary>Инструкции</summary>
+          <ol class="steps">
+            <li>Опора на колени и ладони, спина нейтральная.</li>
+            <li>Отведите пятку назад и вверх, не прогибаясь.</li>
+            <li>Контролируйте возврат, повторите другой ногой.</li>
+          </ol>
+        </details>
+      </article>
+
+      <!-- 7. ПРЕСС (СКРУЧИВАНИЯ) -->
+      <article class="card">
+        <div class="thumb">
+          <img
+            src="https://source.unsplash.com/800x450/?female,ab,crunches,workout"
+            srcset="
+              https://source.unsplash.com/800x450/?female,ab,crunches,workout 800w,
+              https://source.unsplash.com/1200x675/?female,ab,crunches,workout 1200w"
+            sizes="(max-width:640px) 100vw, (max-width:960px) 50vw, 33vw"
+            alt="Скручивания на пресс"
+            loading="lazy" decoding="async">
+          <span class="pill">Пресс</span>
+          <div class="hover-title">Скручивания</div>
+        </div>
+        <div class="content">
+          <h3>Пресс (скручивания)</h3>
+          <div class="muted">Подробная инструкция ниже.</div>
+          <div class="chips"><span class="chip">кор</span><span class="chip">новичкам</span></div>
+        </div>
+        <details>
+          <summary>Инструкции</summary>
+          <ol class="steps">
+            <li>Поясница прижата к полу.</li>
+            <li>Потянитесь рёбрами к тазу, шея расслаблена.</li>
+            <li>Контролируемый спуск вниз.</li>
+          </ol>
+        </details>
+      </article>
+
+      <!-- 8. СУПЕРМЕН -->
+      <article class="card">
+        <div class="thumb">
+          <img
+            src="https://source.unsplash.com/800x450/?female,superman,back,extension,fitness"
+            srcset="
+              https://source.unsplash.com/800x450/?female,superman,back,extension,fitness 800w,
+              https://source.unsplash.com/1200x675/?female,superman,back,extension,fitness 1200w"
+            sizes="(max-width:640px) 100vw, (max-width:960px) 50vw, 33vw"
+            alt="Упражнение супермен"
+            loading="lazy" decoding="async">
+          <span class="pill">Спина/ягодицы</span>
+          <div class="hover-title">Супермен</div>
+        </div>
+        <div class="content">
+          <h3>Супермен</h3>
+          <div class="muted">Подробная инструкция ниже.</div>
+          <div class="chips"><span class="chip">разгибатели спины</span><span class="chip">осанка</span></div>
+        </div>
+        <details>
+          <summary>Инструкции</summary>
+          <ol class="steps">
+            <li>Лягте на живот, вытяните руки вперёд.</li>
+            <li>Поднимите одновременно руки и ноги на выдохе.</li>
+            <li>Держите 1–2 сек и опуститесь.</li>
+          </ol>
+        </details>
+      </article>
+    </section>
+  </div>
 </body>
 </html> 
