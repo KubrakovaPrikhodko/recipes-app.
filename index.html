@@ -1,234 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fit • Beauty • Design — тренды и инструкции</title>
-<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
-<meta name="color-scheme" content="light">
-<link rel="preconnect" href="https://picsum.photos">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fit • Beauty • Design — Общее</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://i.ytimg.com">
 <style>
   :root{
-    --bg:#f6f3f9;
+    --bg:#faf2f2;                /* пудрово-розовый фон по бокам */
     --card:#ffffff;
-    --txt:#222;
-    --muted:#6b6b6b;
-    --brand1:#d636ff;
-    --brand2:#ff6b6b;
-    --pill:#f1e8ff;
-    --shadow:0 6px 18px rgba(15, 0, 60, .08);
-    --radius:18px
+    --ink:#2a2334;
+    --muted:#6b6575;
+    --brand1:#ef5bd2;            /* розово-фиолетовая палитра */
+    --brand2:#875bff;
+    --brand3:#ff6a95;
+    --chip:#f1e8ff;
+    --ok:#0aa15f;
+    --shadow:0 10px 24px rgba(30,10,60,.12);
+    --radius:18px;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial}
-  a{color:inherit;text-decoration:none}
-  header{
-    position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #eee
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    color:var(--ink);
+    background:
+      linear-gradient(90deg, var(--bg) 0 12%, transparent 12% 88%, var(--bg) 88% 100%),
+      #fff;
   }
-  .wrap{max-width:1100px;margin:auto;padding:16px}
-  .brand{display:flex;gap:10px;align-items:center;font-weight:800}
-  .logo{width:36px;height:36px;border-radius:9px;
-    background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;
-    display:grid;place-items:center;font-weight:900}
-  nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .tab{padding:8px 14px;border-radius:999px;background:var(--pill);cursor:pointer}
-  .tab[aria-current="true"]{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;font-weight:700}
-  .ads{margin:14px 0;padding:10px 14px;border-radius:12px;color:#fff;
-       background:linear-gradient(90deg,var(--brand1),var(--brand2));
-       box-shadow: var(--shadow); font-weight:700}
+  .wrap{max-width:1100px;margin:0 auto;padding:18px}
+  header{
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+  .badge{
+    background:linear-gradient(135deg,var(--brand1),var(--brand2));
+    color:#fff;border-radius:999px;padding:6px 10px;font-weight:800;
+    box-shadow:var(--shadow)
+  }
+  nav{
+    display:flex;gap:10px;flex-wrap:wrap;margin-left:auto
+  }
+  nav button{
+    border:0;border-radius:999px;padding:10px 14px;background:#f7f3ff;color:#442a6b;
+    font-weight:700;cursor:pointer;box-shadow:inset 0 0 0 2px #e9dfff
+  }
+  nav button.active{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;box-shadow:var(--shadow)}
+  .ribbon{
+    margin:14px 0;border-radius:999px;padding:10px 16px;
+    background:linear-gradient(90deg,var(--brand1),var(--brand2));
+    color:#fff;font-weight:800;display:flex;justify-content:space-between;align-items:center
+  }
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  @media (max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:620px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
-  .card__media{height:180px;overflow:hidden}
-  .card__media img{width:100%;height:100%;object-fit:cover;display:block}
-  .card__body{padding:14px}
-  .h4{font-weight:800;margin:0 0 6px}
-  .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
-  .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:10px;background:#f5f5ff}
-  .btn:hover{background:#ececff}
-  .chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 10px}
-  .chip{font-size:12px;padding:4px 8px;border-radius:999px;background:#f3f3f7}
-  section{margin:24px 0}
-  .section-title{display:flex;justify-content:space-between;align-items:center;margin:6px 0 10px}
-  .section-title h2{margin:0;font-size:22px}
-  .video{margin:14px 0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
-  iframe{width:100%;height:340px;border:0;display:block}
-  footer{padding:50px 0 70px;color:var(--muted);text-align:center}
-</style>
-</head>
-<body>
-<header>
-  <div class="wrap">
-    <div class="brand">
-      <div class="logo">F•B•D</div>
-      <div>Fit • Beauty • Design</div>
-    </div>
-    <nav id="tabs"></nav>
-  </div>
-</header>
-
-<main class="wrap">
-  <div class="ads">ЗДЕСЬ ДОЛЖНА БЫТЬ ВАША РЕКЛАМА • баннер 1100×120</div>
-  <div class="ads" style="opacity:.9">ЗДЕСЬ ДОЛЖНА БЫТЬ ВАША РЕКЛАМА • баннер 1100×90</div>
-
-  <section id="sec-fitness">
-    <div class="section-title"><h2>Фитнес — домашние упражнения</h2><span class="meta" id="cnt-fitness"></span></div>
-    <!-- видео по разделу -->
-    <div class="video">
-      <iframe loading="lazy" src="https://www.youtube.com/embed/nmwgirgXLYM"
-              title="Home Abs Workout" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="grid" id="grid-fitness"></div>
-  </section>
-
-  <section id="sec-beauty">
-    <div class="section-title"><h2>Красота — домашний уход</h2><span class="meta" id="cnt-beauty"></span></div>
-    <!-- видео по разделу -->
-    <div class="video">
-      <iframe loading="lazy" src="https://www.youtube.com/embed/udra3Mfw2oo"
-              title="Skincare Routine" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="grid" id="grid-beauty"></div>
-  </section>
-
-  <section id="sec-design">
-    <div class="section-title"><h2>Дизайн — обои, штукатурки, панели</h2><span class="meta" id="cnt-design"></span></div>
-    <!-- видео по разделу -->
-    <div class="video">
-      <iframe loading="lazy" src="https://www.youtube.com/embed/H3x7Zg7ZKx4"
-              title="Wall finishes & textures" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="grid" id="grid-design"></div>
-  </section>
-
-  <div class="ads">ЗДЕСЬ ДОЛЖНА БЫТЬ ВАША РЕКЛАМА • баннер 1100×120</div>
-</main>
-
-<footer>© 2025 Fit • Beauty • Design — обновляется автоматически</footer>
-
-<script>
-/* ---------- ДАННЫЕ ---------- */
-// 10 упражнений: живот/ягодицы/руки (picsum: стабильные seed-ссылки)
-const fitness = [
- {title:'Планка на локтях', img:'https://picsum.photos/seed/abs1/800/600',
-  tags:['живот','статическое'], steps:'Зажми корпус, плечи над локтями, 3×40–60 сек.'},
- {title:'Велосипед', img:'https://picsum.photos/seed/abs2/800/600',
-  tags:['живот','динамика'], steps:'Локоть к противоположному колену, 3×20 повторов.'},
- {title:'Русский твист', img:'https://picsum.photos/seed/abs3/800/600',
-  tags:['косые','кор'], steps:'Поверты корпуса с опорой на ягодицы, 3×30 сек.'},
- {title:'Ягодичный мост', img:'https://picsum.photos/seed/glutes1/800/600',
-  tags:['ягодицы'], steps:'Толкай таз вверх, задержка вверху, 4×15.'},
- {title:'Отведение ноги', img:'https://picsum.photos/seed/glutes2/800/600',
-  tags:['ягодицы'], steps:'На четвереньках, 3×12 на каждую.'},
- {title:'Приседания с паузой', img:'https://picsum.photos/seed/glutes3/800/600',
-  tags:['ноги','ягодицы'], steps:'Пауза 1–2 сек внизу, 4×12.'},
- {title:'Отжимания узким хватом', img:'https://picsum.photos/seed/arms1/800/600',
-  tags:['руки','трицепс'], steps:'Локти вдоль корпуса, 3×8–12.'},
- {title:'Отжимания от стула', img:'https://picsum.photos/seed/arms2/800/600',
-  tags:['трицепс'], steps:'Корпус близко к стулу, 3×10–12.'},
- {title:'Планка с касанием плеч', img:'https://picsum.photos/seed/arms3/800/600',
-  tags:['кор','стабильность'], steps:'Поочередно касайся плеч, 3×20 касаний.'},
- {title:'Супермен', img:'https://picsum.photos/seed/arms4/800/600',
-  tags:['спина','кор'], steps:'Подъём рук и ног лёжа, 3×12.'},
-];
-
-// 10 карточек ухода (лицо/тело)
-const beauty = [
- {title:'Двойное очищение', img:'https://picsum.photos/seed/face1/800/600',
-  tags:['лицо','1 шаг'], steps:'Масло/бальзам → пенка. Без трения, 60 сек.'},
- {title:'Тоник увлажняющий', img:'https://picsum.photos/seed/face2/800/600',
-  tags:['лицо'], steps:'Вернуть pH, подготовить кожу к сыворотке.'},
- {title:'Сыворотка с витамином C', img:'https://picsum.photos/seed/skin1/800/600',
-  tags:['утро'], steps:'Нанести на сухую кожу, затем SPF.'},
- {title:'Сыворотка с ниацинамидом', img:'https://picsum.photos/seed/skin2/800/600',
-  tags:['поры','себо'], steps:'Стабилизировать себум, 1–2 раза в день.'},
- {title:'Крем SPF 50', img:'https://picsum.photos/seed/cream1/800/600',
-  tags:['защита'], steps:'Финальный шаг утром. Обновлять каждые 2ч.'},
- {title:'Ночной ретинол', img:'https://picsum.photos/seed/mask1/800/600',
-  tags:['вечер'], steps:'Старт 2–3 раза в неделю, поверх — крем.'},
- {title:'Маска тканевая', img:'https://picsum.photos/seed/spa1/800/600',
-  tags:['экспресс'], steps:'15–20 минут, затем запечатать кремом.'},
- {title:'Сухой щётинг тела', img:'https://picsum.photos/seed/body1/800/600',
-  tags:['тело'], steps:'Короткие движения к сердцу, 3–5 минут.'},
- {title:'Питательный крем для тела', img:'https://picsum.photos/seed/body2/800/600',
-  tags:['тело'], steps:'Сразу после душа на влажную кожу.'},
- {title:'Массаж лица гуаша', img:'https://picsum.photos/seed/face3/800/600',
-  tags:['тонирование'], steps:'Низкое давление, движение по массажным линиям.'},
-];
-
-// 10 карточек дизайна (обои/штукатурки/панели)
-const design = [
- {title:'Лайм-вош (limewash)', img:'https://picsum.photos/seed/wall1/800/600',
-  tags:['матовая глубина'], steps:'Минеральная краска с «дымчатым» эффектом.'},
- {title:'Микроцемент', img:'https://picsum.photos/seed/microcement1/800/600',
-  tags:['монолит'], steps:'Тонкий бесшовный слой, влагостойкий.'},
- {title:'Венецианская штукатурка', img:'https://picsum.photos/seed/venetian1/800/600',
-  tags:['глянец'], steps:'Мраморная крошка + воск, зеркальный блеск.'},
- {title:'3D-панели из МДФ', img:'https://picsum.photos/seed/panels1/800/600',
-  tags:['тёплая фактура'], steps:'Крепление на клей, покраска в тон.'},
- {title:'Акустические панели', img:'https://picsum.photos/seed/panels2/800/600',
-  tags:['тишина и стиль'], steps:'Ламели + войлок, скрывают провода.'},
- {title:'Эко-обои на флизелине', img:'https://picsum.photos/seed/wall2/800/600',
-  tags:['быстрый ремонт'], steps:'Клей на стену, стыки встык.'},
- {title:'Декоративные штукатурки', img:'https://picsum.photos/seed/textures1/800/600',
-  tags:['фактура'], steps:'От «бетона» до «травертина», прочные.'},
- {title:'Панели ПВХ PRO', img:'https://picsum.photos/seed/textures2/800/600',
-  tags:['влажные зоны'], steps:'Для санузлов, быстрый монтаж без пыли.'},
- {title:'Натуральный шпон', img:'https://picsum.photos/seed/wood1/800/600',
-  tags:['премиум'], steps:'Тёплая древесина, требует ухода.'},
- {title:'Краска супермат', img:'https://picsum.photos/seed/paint1/800/600',
-  tags:['минимализм'], steps:'Прячет дефекты, легко перекрашивается.'},
-];
-
-/* ---------- ОТРИСОВКА ---------- */
-const tabsData = [
-  {id:'fitness', label:'Фитнес', count:fitness.length, target:'#sec-fitness'},
-  {id:'beauty',  label:'Красота', count:beauty.length, target:'#sec-beauty'},
-  {id:'design',  label:'Дизайн', count:design.length, target:'#sec-design'},
-];
-const byId = sel => document.querySelector(sel);
-
-function renderTabs(){
-  const nav = byId('#tabs');
-  tabsData.forEach((t,i)=>{
-    const a = document.createElement('a');
-    a.className='tab';
-    a.href=t.target;
-    a.textContent = `${t.label} ${t.count}`;
-    if(i===0) a.setAttribute('aria-current','true');
-    a.addEventListener('click', e=>{
-      document.querySelectorAll('.tab').forEach(el=>el.removeAttribute('aria-current'));
-      a.setAttribute('aria-current','true');
-    });
-    nav.appendChild(a);
-  });
-}
-
-function card(item){
-  const el = document.createElement('article');
-  el.className='card';
-  el.innerHTML = `
-    <div class="card__media"><img src="${item.img}" loading="lazy" alt="${item.title}"></div>
-    <div class="card__body">
-      <h3 class="h4">${item.title}</h3>
-      <div class="chips">${(item.tags||[]).map(t=>`<span class="chip">${t}</span>`).join('')}</div>
-      <p class="meta">${item.steps||''}</p>
-      <a class="btn" href="#" onclick="alert('Короткая инструкция:\\n\\n${(item.steps||'')}');return false;">Инструкции</a>
-    </div>`;
-  return el;
-}
-
-function mountGrid(list, targetSel, counterSel){
-  const g = byId(targetSel);
-  list.forEach(x=>g.appendChild(card(x)));
-  if(counterSel) byId(counterSel).textContent = `${list.length} материалов`;
-}
-
-renderTabs();
-mountGrid(fitness,'#grid-fitness','#cnt-fitness');
-mountGrid(beauty,'#grid-beauty','#cnt-beauty');
-mountGrid(design,'#grid-design','#cnt-design');
-</script>
-</body>
-</html> 
+  @media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:640px){.grid{grid-template-columns:1fr}}
+  .card{
+    background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column
+  }
+  .thumb{
+    aspect-ratio:16/9;background:#ddd;position:relative;overflow:hidden
+  }
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb .pill{
+    position:absolute;left:12px;top:12px;background:#ffffffd0;color:#552f88;
+    padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px
+  }
+  .content{padding:14px 16px 6px}
+  h3{margin:0 0 6px 0}
+  .muted{color:var(--muted);font-size:14px}
+  details{border-top:1px dashed #eee;padding:10px 16px 14px}
+  summary{cursor:pointer;font-weight:700}
+  .steps{margin:8px 0 0 0;padding-left:18px}
+  .steps li{margin:6px 0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+  .chip{background:var(--chip);border-radius:999px;padding:4px 10px;font-weight:700;font-size:12px}
+  .video{padding:0 16px 16px}
+  .video iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;box-shadow:var(--shadow)}
+  .layout{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:12px}
+  @media (max-width:110 
