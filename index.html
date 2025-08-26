@@ -6,7 +6,6 @@
 <title>Ваш стиль. С заботой о Вас! @Анастасия П.</title>
 <meta name="description" content="Домашний фитнес, правильное питание и домашний уход за телом и лицом. Чёткие карточки с описаниями и наглядные материалы. Без воды — только польза.">
 
-<!-- Минимальные стили (надёжно и быстро) -->
 <style>
 :root{
   --brand:#2563eb; --accent:#10b981;
@@ -14,8 +13,7 @@
   --text:#111827; --muted:#6b7280; --border:#e5e7eb;
   --radius:14px; --radius-sm:10px; --container:1120px;
 }
-*{box-sizing:border-box}
-html,body{margin:0}
+*{box-sizing:border-box} html,body{margin:0}
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:var(--bg);color:var(--text);line-height:1.65}
 .container{max-width:var(--container);margin:0 auto;padding:0 18px}
 
@@ -41,11 +39,11 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
 .section h2{margin:0 0 12px;font-size:24px}
 .section__lead{margin:6px 0 14px;color:var(--muted)}
 
-/* Section hero (для Питание и Уход вместо видео) */
+/* Section hero (Питание/Уход) */
 .section-hero{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:#000;margin:10px 0 16px}
 .section-hero img{display:block;width:100%;height:360px;object-fit:cover}
 
-/* Video (только в Фитнес) */
+/* Video (только Фитнес) */
 .video{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#000;margin:10px 0 16px}
 .video iframe{display:block;width:100%;height:360px;border:0}
 .video__fallback{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#fff;border-top:1px solid var(--border)}
@@ -78,17 +76,10 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
 
 <header class="header">
   <div class="container header__in">
-    <a class="brand" href="#">
-      <span class="logo"></span>
-      <span>Ваш стиль. С заботой о Вас! @Анастасия П.</span>
-    </a>
+    <a class="brand" href="#"><span class="logo"></span><span>Ваш стиль. С заботой о Вас! @Анастасия П.</span></a>
     <nav class="nav" aria-label="Навигация">
-      <a href="#fitness">Фитнес</a>
-      <a href="#nutrition">Питание</a>
-      <a href="#care">Уход</a>
-      <a href="#popular">Популярное</a>
-      <a href="#subscribe">Подписка</a>
-      <a href="#about">О проекте</a>
+      <a href="#fitness">Фитнес</a><a href="#nutrition">Питание</a><a href="#care">Уход</a>
+      <a href="#popular">Популярное</a><a href="#subscribe">Подписка</a><a href="#about">О проекте</a>
     </nav>
   </div>
 </header>
@@ -97,10 +88,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
   <div class="container">
     <h1>Фитнес, питание и уход — просто и по делу</h1>
     <p>Домашние тренировки, тарелки здоровья и ежедневные рутины. Чёткие описания, понятные шаги и наглядные иллюстрации.</p>
-    <div>
-      <a class="btn btn--pri" href="#fitness">К разделам</a>
-      <a class="btn btn--sec" href="#popular">Популярное</a>
-    </div>
+    <div><a class="btn btn--pri" href="#fitness">К разделам</a> <a class="btn btn--sec" href="#popular">Популярное</a></div>
   </div>
 </section>
 
@@ -110,18 +98,13 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
     <h2>Фитнес</h2>
     <p class="section__lead">Тренировки без инвентаря, план на 4 недели и грамотная разминка/заминка для результата без травм.</p>
 
-    <!-- Один рабочий плеер оставляем только здесь -->
     <div class="video">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/UBMk30rjy0o?rel=0&modestbranding=1"
-        title="Фитнес: базовая тренировка дома"
-        loading="lazy" allowfullscreen
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-      <div class="video__fallback">
-        <span>Если видео не загружается: </span>
-        <a href="https://youtu.be/UBMk30rjy0o" target="_blank" rel="noopener">Смотреть на YouTube</a>
-      </div>
+      <iframe src="https://www.youtube-nocookie.com/embed/UBMk30rjy0o?rel=0&modestbranding=1"
+              title="Фитнес: базовая тренировка дома" loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+      <div class="video__fallback"><span>Если видео не загружается: </span>
+        <a href="https://youtu.be/UBMk30rjy0o" target="_blank" rel="noopener">Смотреть на YouTube</a></div>
     </div>
 
     <div class="grid" role="list">
@@ -131,7 +114,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
         <div class="card__b">
           <span class="badge">#Фитнес</span>
           <h3>Домашняя тренировка: 25 минут</h3>
-          <p>Разминка → 3 раунда по 5 упражнений → заминка. Работаем со своим весом, держим темп и чистую технику. Идеально для старта и возвращения в форму.</p>
+          <p>Разминка → 3 раунда по 5 упражнений → заминка. Работаем со своим весом, держим темп и технику. Идеально для старта и возвращения в форму.</p>
         </div>
       </article>
 
@@ -141,7 +124,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
         <div class="card__b">
           <span class="badge">#Фитнес</span>
           <h3>Йога для начинающих</h3>
-          <p>10 спокойных асан, безопасные варианты и дыхание 4–4. Помогает снять зажимы, улучшает сон и настроения — без акробатики и «шпагатов».</p>
+          <p>10 спокойных асан, безопасные варианты и дыхание 4–4. Снимает зажимы, улучшает сон и настроение — без акробатики и «шпагатов».</p>
         </div>
       </article>
 
@@ -158,7 +141,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
   </div>
 </section>
 
-<!-- ====================== Питание (без видео, герой-изображение) ====================== -->
+<!-- ====================== Питание (без видео) ====================== -->
 <section class="section" id="nutrition" style="background:var(--surface-2)">
   <div class="container">
     <h2>Питание</h2>
@@ -176,7 +159,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
         <div class="card__b">
           <span class="badge">#Питание</span>
           <h3>Баланс БЖУ — просто</h3>
-          <p>1/2 тарелки — овощи, 1/4 — белок, 1/4 — сложные углеводы. Плюс ложка полезных жиров. Сохраняем сытость, снижаем тягу к сладкому и держим энергию весь день.</p>
+          <p>1/2 тарелки — овощи, 1/4 — белок, 1/4 — сложные углеводы плюс ложка полезных жиров. Держим сытость и энергию без «срывов».</p>
         </div>
       </article>
 
@@ -186,7 +169,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
         <div class="card__b">
           <span class="badge">#Питание</span>
           <h3>6 готовых тарелок</h3>
-          <p>Комбинации на завтрак, обед и ужин: курица + гречка + салат, лосось + киноа + овощи, омлет + тост цельнозерновой. Меняем местами — и всегда баланс.</p>
+          <p>Комбинации на завтрак, обед и ужин: курица + гречка + салат, лосось + киноа + овощи, омлет + цельнозерновой тост. Меняем местами и сохраняем баланс.</p>
         </div>
       </article>
 
@@ -196,22 +179,23 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
         <div class="card__b">
           <span class="badge">#Питание</span>
           <h3>Сладкое без вреда</h3>
-          <p>Пять десертов с пользой: йогуртовый парфе с ягодами, банановые панкейки, запечённые яблоки, творожное суфле и шоколадный мусс на какао.</p>
+          <p>Пять десертов: йогуртовый парфе с ягодами, банановые панкейки, запечённые яблоки, творожное суфле и какао-мусс. Вкусно и полезно.</p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ====================== Уход (без видео, герой-изображение) ====================== -->
+<!-- ====================== Уход (без видео) ====================== -->
 <section class="section" id="care">
   <div class="container">
     <h2>Уход</h2>
-    <p class="section__lead">Ежедневная рутина для кожи, SPF-защита и рабочее увлажнение. Всё просто и без перегруза средствами.</p>
+    <p class="section__lead">Ежедневная рутина для кожи, SPF-защита и рабочее увлажнение — без перегруза средствами.</p>
 
+    <!-- Новый герой-баннер по теме ухода за телом -->
     <div class="section-hero">
-      <img loading="lazy" alt="Уход за кожей: очищение, тонизация, увлажнение"
-           src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80">
+      <img loading="lazy" alt="Уход за телом и кожей: очищение, увлажнение, средства ухода"
+           src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80">
     </div>
 
     <div class="grid" role="list">
@@ -221,7 +205,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
         <div class="card__b">
           <span class="badge">#Уход</span>
           <h3>Утро: 4 шага</h3>
-          <p>Очищение — тон — увлажнение — SPF. Подбираем мягкое средство, лёгкий крем и солнцезащиту с SPF 30–50. Лицо, уши, шея и тыльная сторона рук — обязательно.</p>
+          <p>Очищение — тон — увлажнение — SPF. Мягкое средство, лёгкий крем и защита SPF 30–50. Лицо, уши, шея и тыльная сторона рук — обязательно.</p>
         </div>
       </article>
 
@@ -231,17 +215,27 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
         <div class="card__b">
           <span class="badge">#Уход</span>
           <h3>SPF каждый день</h3>
-          <p>Фильтры — минеральные или химические, главное — регулярность. Норма — 2 пальца крема на лицо. Обновляем каждые 2–3 часа на солнце.</p>
+          <p>Минеральный или химический фильтр — выбираем по комфорту. Норма: «два пальца» на лицо, обновление каждые 2–3 часа при активном солнце.</p>
         </div>
       </article>
 
       <article class="card" role="listitem">
-        <img loading="lazy" alt="Крем-увлажнитель"
+        <img loading="lazy" alt="Крем-увлажнитель и сыворотка"
              src="https://images.unsplash.com/photo-1583315247075-1c728fd08f4c?auto=format&fit=crop&w=1200&h=675&q=80">
         <div class="card__b">
           <span class="badge">#Уход</span>
           <h3>Увлажнение: что работает</h3>
-          <p>Гиалуроновая кислота удерживает воду, керамиды восстанавливают барьер, ниацинамид успокаивает. Наносим на влажную кожу и закрываем кремом.</p>
+          <p>Гиалуроновая кислота удерживает воду, керамиды восстанавливают барьер, ниацинамид успокаивает. Наносим на влажную кожу и «закрываем» кремом.</p>
+        </div>
+      </article>
+
+      <article class="card" role="listitem">
+        <img loading="lazy" alt="Деликатный крем для кожи вокруг глаз"
+             src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&h=675&q=80">
+        <div class="card__b">
+          <span class="badge">#Уход</span>
+          <h3>Кожа вокруг глаз: с чего начать</h3>
+          <p>Лёгкий крем-гель, защита SPF и аккуратное нанесение без растягивания кожи. Снимаем отёчность и «синеву» мягко и безопасно.</p>
         </div>
       </article>
     </div>
@@ -279,7 +273,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:
         <div class="card__b">
           <span class="badge">#Уход</span>
           <h3>Кожа вокруг глаз: с чего начать</h3>
-          <p>Лёгкий крем-гель, защита SPF и аккуратное нанесение без растягивания кожи. Убираем отёчность и «синеву» деликатно.</p>
+          <p>Лёгкий крем-гель, защита SPF и аккуратное нанесение без растягивания кожи. Деликатный уход каждый день — и результат заметен.</p>
         </div>
       </article>
     </div>
